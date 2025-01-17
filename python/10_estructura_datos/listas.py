@@ -1,0 +1,83 @@
+
+"""Sintaxis de una lista"""
+
+# Lista vacía
+mi_lista = []
+
+# Lista con elementos
+mi_lista = [1, 2, 3, 4, 5]
+
+# Lista con diferentes tipos de datos
+mi_lista = [42, "Hola", 3.14, True]
+
+# Crear una lista con la función list()
+otra_lista = list((1, 2, 3))  # Convertir una tupla en lista
+
+"""Acceso a los elementos"""
+mi_lista = [10, 20, 30, 40, 50]
+
+print(mi_lista[0])  # Accede al primer elemento (10)
+print(mi_lista[-1]) # Accede al último elemento (50)
+
+"""Modificación de los elementos"""
+mi_lista = [10, 20, 30]
+
+mi_lista[1] = 25  # Cambiar el segundo elemento
+print(mi_lista)   # [10, 25, 30]
+
+"""Operaciones comunces"""
+
+# 1. Agregar elementos:
+mi_lista = [1, 2, 3]
+# append(): Agrega un elemento al final
+mi_lista.append(4)         # [1, 2, 3, 4]
+# insert(): Inserta un elemento en una posición específica
+mi_lista.insert(1, 10)     # [1, 10, 2, 3, 4]
+
+
+# 2. Eliminar elementos:
+mi_lista = [1, 2, 3, 4]
+# remove(): Elimina un elemento por su valor.
+mi_lista.remove(2)  # [1, 3, 4]
+#pop(): Elimina un elemento por su índice (o el último si no se especifica).
+mi_lista.pop(0)     # [3, 4]
+# del: Elimina un elemento o una porción de la lista.
+del mi_lista[1]     # [3]
+# clear(): Vacía toda la lista.
+mi_lista.clear()    # []
+
+"""Longitud de una lista"""
+# len(): Devuelve el número de elementos en la lista
+
+mi_lista = [1, 2, 3, 4, 5, 6]
+print(len(mi_lista))  # 6
+
+"""Obtener una sublista"""
+sublista = mi_lista[1:3]
+print(f'Sublista [1:3]: {sublista}')  # [2, 3] 
+
+"""Recorrer una lista"""
+mi_lista = ["a", "b", "c"]
+
+for elemento in mi_lista:
+    print(elemento)
+
+"""Listas anidadas"""
+
+# Puedes tener listas dentro de otras listas.
+
+mi_lista = [[1, 2], [3, 4], [5, 6]]
+
+print(mi_lista[1])     # [3, 4]
+print(mi_lista[1][0])  # 3
+
+"""Otras funciones útiles"""
+mi_lista = [3, 1, 4, 1, 5]
+# sort() y sorted(): Ordena los elementos.
+mi_lista.sort()            # [1, 1, 3, 4, 5]
+# reverse(): Invierte el orden de los elementos.
+mi_lista.reverse()         # [5, 4, 3, 1, 1]
+# index(): Encuentra la posición de un elemento.
+print(mi_lista.index(4))   # 1
+# count(): Cuenta cuántas veces aparece un elemento
+print(mi_lista.count(1))   # 2

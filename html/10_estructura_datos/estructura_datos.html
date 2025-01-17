@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>colecciones en python</title>
+  <!-- Tema CSS para Prism -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <!-- Script base de Prism -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <!-- Componente para Python -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <style>
+    body {
+      min-height: 15000px;
+    }
+  </style>
+  <style>
+    pre {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      color: #2208e3;
+    }
+  </style>
+
+</head>
+
+<body>
+  <article>
+    <header>
+      <h1>Colecciones en python</h1>
+      <p> Una colección es un conjunto de datos, por eso tambien se les conoce como <strong>Estructura de
+          datos.</strong>
+        En Python, una estructura de datos es una forma organizada de almacenar y manipular datos de manera eficiente,
+        dependiendo del caso de uso. Permiten gestionar grandes volúmenes de datos y realizar operaciones como búsqueda,
+        inserción, eliminación y ordenamiento de forma más fácil y eficiente.
+        Python ofrece una variedad de estructuras de datos integradas y herramientas avanzadas para personalizarlas.
+      </p>
+    </header>
+    <main>
+      <h3>Principales estructuras de datos en Python:</h3>
+      <p>
+      <ul>
+        <section>
+          <h3>
+            <li>Listas (list):</li>
+          </h3>
+          <p>
+          <ul>
+            <h4>
+              <li>Qué son:
+            </h4> Colección ordenada de elementos <strong>mutables</strong> que pueden ser de cualquier tipo. </li>
+            <h4>
+              <li>Características:
+            </h4>
+            <ul>
+              <li>Permiten duplicados</li>
+              <li>Acceso por indice</li>
+              <li>Son dinámicas</li>
+              <li>Pueden anidarse</li>
+              <li>Son iterables (ciclo for): </li>
+              valores = [1, "dos", True] <br>
+              for valor in valores: <br>
+              ____print(valor)
+            </ul>
+            </li>
+            <li>
+              <h4>Métodos:</h4>
+            </li>
+            <ul>
+              <li>list.append:(valor) </li>
+              <li>list.extend: (lista) </li>
+              <li>list.insert: (indice, valor)</li>
+              <li>list.remove(valor)</li>
+              <li>list.pop(indice)</li>
+              <li>del list[indice]</li>
+              <li>sub_list=list[1:3]</li>
+              <li>valor = list[0].split()[]</li>
+            </ul>
+          </ul>
+          </p>
+        </section>
+        <section>
+          <h3>
+            <li>Tuplas (tuple):</li>
+          </h3>
+          <p>
+          <ul>
+            <h4>
+              <li>Qué son:
+            </h4> Colección ordenada de elementos, pero <strong>inmutables.</strong> </li>
+            <h4>
+              <li>Características:
+            </h4>
+            <ul>
+              <li>Una vez creadas, no se pueden modificar.</li>
+              <li>Útiles para datos que no deben cambiar.</li>
+              <li>Acceso por indice</li>
+              <li>Pueden iterarse</li>
+              <li>Pueden anidarse</li>
+              <li>Pueden desempaquetarse: </li>
+              El desempaquetado de una tupla es una técnica en Python que permite asignar los valores de una tupla (o
+              cualquier iterable) directamente a múltiples variables en una sola línea de código. Esto se logra al
+              igualar
+              la tupla a las variables correspondientes.
+            </ul>
+            </li>
+          </ul>
+          </p>
+        </section>
+        <section>
+          <h3>
+            <li>Las listas y las tuplas pueden combinarse:</li>
+          </h3>
+          <p>
+          <ul>
+            <li>
+              list = [(tuple1), (tuple2), (tuple3)] <br>
+              # tuple1 = (int1, str1, float1) <br>
+              # tuple2 = (int2, str2, float2) <br>
+              # tuple3 = (int3, str3, float3) <br>
+            </li> <br>
+            <li>
+              pueden iterarse para hacer el unpacking: <br>
+              for valor in list: <br>
+              ____id, descripcion, precio = valor
+            </li>
+          </ul>
+          </p>
+        </section>
+        <section>
+          <h3>
+            <li>Sets (set):</li>
+          </h3>
+          <p>
+          <ul>
+            <h4>
+              <li>Qué son:
+            </h4> Colección <strong>desordenada</strong> de elementos <strong>únicos</strong> </li>
+            <h4>
+              <li>Características:
+            </h4>
+            <ul>
+              <li>No permiten valores duplicados</li>
+              <li>No tienen indice</li>
+              <li>Son iterables</li>
+            </ul>
+            <li>
+              <h4>Métodos:</h4>
+            </li>
+            <ul>
+              <li>set.add(valor) </li>
+              <li>set.remove(valor) - lanza error si no existe</li>
+              <li>set.discard(valor) - no lanza error si no existe</li>
+              <li>set.pop() - elimina y devuelve un elemento aleatorio del conjunto</li>
+              <li>set.clear() - elimina todos los elementos del set</li>
+              <li>valor in set = devuelve True/False</li>
+              <li>len(set)</li>
+            </ul>
+            <li>
+              <h4>Operaciones: </h4>
+            </li>
+            <ul>
+              <li>set.union(*otros) - devuelve un nuevo set con la union de dos o mas conjuntos</li>
+              <li>set.intersection(*otros) - devuelve un nuevo conjunto con los elementos comunes</li>
+              <li>set.difference(*otros) - devuelve un nuevo conjunto con los elementos que están en el conjunto
+                original pero no en los otros.</li>
+              <li>set.symmetric_difference(*otro) - devuelve un nuevo conjunto con los elementos que están en uno u
+                otro
+                conjunto, pero no en ambos.</li>
+              <li>set.issubset(*otro) - Devuelve True si el conjunto actual es un subconjunto del otro.</li>
+              <li>set.isdisjoint(otro) - Devuelve True si los dos conjuntos no tienen elementos en común. </li>
+            </ul>
+          </ul>
+          </p>
+        </section>
+        <section>
+          <h3>
+            <li>Diccionarios (dict):</li>
+          </h3>
+          Un diccionario en Python es una estructura de datos ordenada que almacena pares clave-valor. Es muy útil
+          para
+          organizar y acceder a datos asociados. Las claves deben ser únicas e inmutables (por ejemplo, cadenas,
+          números o tuplas), mientras que los valores pueden ser de cualquier tipo.
+          <br>
+          <br>
+          sintaxis: dict = {clave1: valor1, clave2:valor2}
+          <p>
+          <ul>
+            <li>
+              <h4>Características principales:</h4>
+            </li>
+            <ul>
+              <li><strong>Colección desordenada:</strong> Los elementos no tienen un orden específico.</li>
+              <li><strong>Claves únicas:</strong> No pueden repetirse. Si se intenta asignar un valor a una clave
+                existente, este será
+                sobrescrito.</li>
+              <li><strong>Acceso rápido:</strong> Los valores se acceden directamente mediante su clave.</li>
+              <li><strong>Mutables: </strong>Puedes modificar, agregar o eliminar elementos después de haberlo creado.
+              </li>
+            </ul>
+          </ul>
+          <ul>
+            <li>
+              <h4>Métodos Principales</h4>
+            </li>
+            <ul>
+              <li>Crear un dict: </li>
+              * usando claves: mi_dicc = {"key": "valor", "key2": "valor2"} <br> * usando el constructor: mi_dicc =
+              dict(key1=valor1, key2=valor2)
+              <li>Acceder a sus elementos:</li>
+              * usando claves: print(mi_dicc["key"]) <br>
+              * usando el método .get(): mi_dicc.get("key")
+              <li>Modificar un diccionario</li>
+              * agregar o actualizar <br>
+              * eliminar <br>
+              * iterar (bucle for (solo en clave, solo en valor o en clave, valor(dict.items()))) <br>
+            </ul>
+          </ul>
+          <ul>
+            <li>
+              <h4>Métodos útiles</h4>
+            </li>
+            <ul>
+              <li>dict.keys: devuelve todas las claves</li>
+              <li>list(dict.items()//dict.values()//dict.keys())</li>
+              <li>dict.values(): devuelve todos los valores</li>
+              <li>dict.items: devuelve pares clave-valor como tuplas</li>
+              <li>dict.pop(clave): elimina la clave dada y devuelve su valor</li>
+              <li>dict.clear: vacía el dicc</li>
+              <li>dict.update(dict2): agrega o actualiza elementos desde otro diccionario</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h3>
+            <li>Comprension de listas</li>
+          </h3>
+          <p>
+            La comprensión de listas en Python es una forma concisa y eficiente de crear listas nuevas a partir de
+            iterables existentes, como listas, tuplas o rangos, aplicando una expresión opcionalmente seguida de
+            condiciones. Es muy útil para reducir código y mejorar la legibilidad.
+          <ul>
+            <h4>Sintaxis básica: </h4>
+            <p>[expresión for elemento in iterable if condición]
+            </p>
+            <ol>
+              <li>expresión: Lo que se incluirá en la nueva lista(puede ser el elemnto tal cual o una operacion sobre
+                él.)
+              </li>
+              <li>for elemento in iterable: Itera sobre un iterable, como una lista, rango o conjunto.</li>
+              <li>if condición (opcional): Filtra elementos que cumplan una condición específica.</li>
+            </ol>
+          </ul>
+          </p>
+        </section>
+        <section>
+          <h3>
+            <li>Desempaquetado de estructura de datos</li>
+          </h3>
+          <p>
+            En Python, muchas estructuras de datos pueden desempaquetarse utilizando la sintaxis de desempaquetado (* o
+            **) o asignación múltiple. <br>
+            Estas estructuras incluyen:
+          <ol>
+            <li>
+              <h4>Listas y tuplas</h4>
+              <h5>* Puedes desempaquetar valores directamente en variables:</h5>
+              <pre><code class="language-python">
+lista = [1, 2, 3]
+a, b, c = lista  # a=1, b=2, c=3
+              </code></pre>
+              <pre><code class="language-python">
+tupla = (4, 5, 6)
+x, y, z = tupla # x=4, y=5, z=6
+              </code></pre>
+              <h5>* También puedes usar * para capturar valores restantes:</h5>
+              <pre><code class="language-python">
+lista = [1, 2, 3, 4, 5]
+a, *b, c = lista  # a=1, b=[2, 3, 4], c=5
+              </code></pre>
+            </li>
+            <li>
+              <h4>Sets:</h4>
+              <h5>* Aunque los conjuntos no son ordenados, puedes desempaquetarlos:</h5>
+              <pre><code class="language-python">
+conjunto = {7, 8, 9}
+a, b, c = conjunto  # El orden no está garantizado
+              </code></pre>
+            </li>
+            <li>
+              <h4>Diccionarios</h4>
+              <h5>* Claves por defecto:</h5>
+              <pre><code class="language-python">
+diccionario = {'x': 10, 'y': 20, 'z': 30}
+a, b, c = diccionario  # a='x', b='y', c='z'
+              </code></pre>
+              <h5>* Valores usando .values():</h5>
+              <pre><code class="language-python">
+valores = diccionario.values()
+a, b, c = valores  # a=10, b=20, c=30
+              </code></pre>
+              <h5>* Claves y valores como tuplas con .items():</h5>
+              <pre><code class="language-python">
+items = diccionario.items()
+for clave, valor in items:
+    print(clave, valor)
+              </code></pre>
+            </li>
+            <li>
+              <h4>Strings</h4>
+              <h5>* Las cadenas se pueden desempaquetar carácter por carácter:</h5>
+              <pre><code class="language-python">
+cadena = "abc"
+a, b, c = cadena  # a='a', b='b', c='c'
+              </code></pre>
+            </li>
+            <li>
+              <h4>Generadores y Iteradores</h4>
+              <h5>* Si defines un método __iter__ o __getitem__, puedes hacer que tu clase soporte desempaquetado:</h5>
+              <pre><code class="language-python">
+              class MiClase:
+              def __init__(self):
+              self.datos = [1, 2, 3]
+
+              def __iter__(self):
+              return iter(self.datos)
+              obj = MiClase()
+              a, b, c = obj # a=1, b=2, c=3
+              </code></pre>
+            </li>
+            <li>
+              <h4>Desempaquetado Extendido</h4>
+              <h5>* Usando * para listas y ** para diccionarios:</h5>
+              <p># Para listas</p>
+              <pre><code class="language-python">
+lista1 = [1, 2, 3]
+lista2 = [4, 5]
+nueva_lista = [*lista1, *lista2]  # [1, 2, 3, 4, 5]
+              </code></pre>
+              <p># Para diccionarios</p>
+              <pre><code class="language-python">
+dic1 = {'a': 1, 'b': 2}
+dic2 = {'c': 3}
+nuevo_dic = {**dic1, **dic2}  # {'a': 1, 'b': 2, 'c': 3}
+              </code></pre>
+            </li>
+          </ol>
+
+          </p>
+      </ul>
+      </p>
+    </main>
+    <footer>
+      <a
+        href="C:\Users\Rocio\Desktop\diseño de aplicaciones\repaso\10_estructura_datos\html\desempaquetado_datos.html">Siguiente</a>
+      <br>
+      <a href="C:\Users\Rocio\Desktop\diseño de aplicaciones\repaso\index.html">Index</a>
+
+    </footer>
+  </article>
+</body>
+
+</html>

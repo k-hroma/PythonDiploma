@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funciones</title>
+  <link rel="stylesheet" href="./funciones.css">
+</head>
+
+<body>
+  <header>
+    <h1>Funciones en Python</h1>
+    <p>Las funciones son bloques de código para realizar una tares en particular.
+      <br>
+      Se pueden reutilizar en diferentes pasrtes de un proframa.
+      <br>Sirven para organizar el código, hacerlo más legible, evitar redundancia y facilitar el mantenimiento.
+    </p>
+    <ol>
+      <h3>Características principales</h3>
+      <li>Reutilización de código: Puedes escribir el código una vez y usarlo varias veces.</li>
+      <li>Modularidad: Dividen el programa en partes más manejables.</li>
+      <li>Legibilidad: Facilitan la comprensión del propósito del código.</li>
+      <li>Facilidad de depuración: Separar funcionalidades específicas en funciones simplifica la identificación de
+        errores.</li>
+      <li>Parametrización: Las funciones pueden ser diseñadas para aceptar parámetros, lo que hace más flexible los
+        programas.</li>
+    </ol>
+  </header>
+  <section>
+    <ul>
+      <h3>Sintaxis básica de definición de una función</h3>
+      <li>Define de la función (verbo o acción): def nombre_funcion(parámetros)</li>
+      <li>Defini el cuerpo de la función: es el código que se ejecuta cuando se manda a llamar a la función</li>
+      <li>Se llama a la función pasándole los argumentos</li>
+      <pre><code>
+def suma(p1, p2):
+    resultado = p1 + p2
+    retur resultado  -----------> devuelve un valor
+    print(resultado) -----------> muestra el valor en pantalla
+
+resultado_final = suma(5, 3) ---> se llama a la funcion, se pasan los argumentos y se guarda el resultado en un variable
+print(resultado final) -----> se imprime el resultado de la función
+      </code></pre>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <h3>Regresar una tupla de valores desde una función</h3>
+      <pre>
+        <code>
+def persona(nombre, apellido, edad):
+    return(nombre, apellido, edad)
+nombre, apellido, edad = persona("sandra", "jimenez", 30)
+        </code>
+      </pre>
+      <h3>Convertir una tupla en lista</h3>
+      <pre>
+        <code>
+variable_tupla = nombre, apellido, edad
+variable_lista = list(variable_tupla)
+        </code>
+      </pre>
+      <h3>Realizar un unpacking</h3>
+      <pre>
+        <code>
+def unpacking():
+    x, y, z = 10, 20, 30
+    return x, y, z
+resultado = unpacking()
+x1, y1, z1, = resultado
+        </code>
+      </pre>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <h3>Alcance de las variables</h3>
+      <li>Global: Variables definidas en el nivel más alto del módulo (fuera de cualquier función o clase). Pueden ser
+        accedidas desde cualquier lugar del archivo (a menos que estén ocultas por una variable local con el mismo
+        nombre).</li>
+      <li>Local: Variables definidas dentro de una función o bloque.</li>
+      <li>No local (Enclosing): Variables en funciones anidadas, en el ámbito de una función externa pero no global.
+        Si tienes funciones anidadas, la función interna puede acceder a las variables definidas en la función que la
+        contiene, pero no puede modificarlas directamente sin usar la palabra clave nonlocal.</li>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <h3>Argumentos variables</h3>
+      <p>En Python, los argumentos variables permiten que una función acepte un número arbitrario de elementos. <br>
+        Hay dos tipos principales:</p>
+      <li>Argumentos posicionales variables *args: permite pasar argumentos posicionales a una función, recibiendolos
+        como una tupla dentro de la función.</li>
+      <li>Argumentos con palabra clave **kwargs: permite pasar argumentos de forma (clave-valor)</li>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <h3>
+        Funciones recursivas
+      </h3>
+      <p>
+        Las funciones recursivas en Python (y en general en programación) son funciones que se llaman a sí mismas,
+        directa o indirectamente, para resolver un problema dividiéndolo en subproblemas más pequeños y manejables. <br>
+        Debe avanzar hacia un caso base, de lo contrario caería en un ciclo infinito.
+      <h2>Características principales</h2>
+      <li>Caso base: La función debe tener una condición que detenga la recursión (el caso base). Esto evita que la
+        función se llame indefinidamente y cause un desbordamiento de pila (stack overflow).</li>
+      <li>Caso recursivo: Es la parte de la función que llama a sí misma con un argumento modificado, acercándose al
+        caso base.</li>
+      <li>Sintáxis básica en Python:
+        <pre>
+            <code>
+              def funcion_recursiva(parametro):
+# Caso base
+if condicion_para_detener: # ej: si n==1, entonces 
+    return resultado       # devuelve n
+
+# Caso recursivo
+else:                      # si n!= 1 
+    return funcion_recursiva(nuevo_parametro) # entonces se llama a si misma con un parámetro distinto (n-1) 
+            </code>
+          </pre>
+      </li>
+
+
+      </p>
+
+    </ul>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estructura de datos</title>
+
+</head>
+
+<body>
+  <header>
+    <h1>Estructura de datos</h1>
+    <nav>
+      <ul class="menu-align">
+        <h4>Menú</h4>
+        <li>Lists</li>
+        <li>Tuples</li>
+        <li>Sets</li>
+        <li>Dictionaries</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <section>
+        <h3 class="text-h3"><a href="./listas.html">LISTS</a></h3>
+        <p class="text-p">
+          Una lista en Python es un tipo de dato que permite almacenar múltiples elementos en un solo contenedor. Es una
+          estructura de datos ordenada, mutable (modificable) y puede contener elementos de diferentes tipos, como
+          números, cadenas, otros objetos, e incluso otras listas.
+        </p>
+        <ul class="text-ol">
+          <h4>Características principales</h4>
+          <br>
+          <li>Ordenada: Los elementos mantienen el orden en el que se agregan.</li>
+          <li>Mutable: Puedes agregar, modificar o eliminar elementos.</li>
+          <li>Heterogénea: Puede contener elementos de diferentes tipos.</li>
+          <li>Índices: Cada elemento tiene un índice, empezando desde 0.</li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="text-h3"><a href="./tuplas.html">TUPLES</a></h3>
+        <p class="text-p">
+          Una tupla en Python es una colección inmutable de elementos, lo que significa que una vez creada, no se pueden
+          modificar, añadir ni eliminar elementos. Se usa para almacenar múltiples elementos en una sola variable y se
+          define con paréntesis ().
+        </p>
+        <ul class="text-ol">
+          <h4>Características principales</h4>
+          <br>
+          <li>Ordenada: Los elementos mantienen el orden en el que se agregan.</li>
+          <li>Inmutable: Una vez creadas, no se pueden modificar. Esto significa que no puedes agregar, eliminar ni
+            cambiar los elementos de una tupla.</li>
+          <li>Heterogénea: Puede contener elementos de diferentes tipos.</li>
+          <li>Índices: Cada elemento tiene un índice, empezando desde 0.</li>
+          <li>Aceptan duplicados: Una tupla puede contener elementos repetidos. </li>
+          <li>Soportan operaciones comunes: Puedes usar operadores como concatenación (+), repetición (*) y verificación
+            de pertenencia (in). </li>
+          <li>Se pueden usar como claves en diccionarios: Debido a que son inmutables, las tuplas son hashables y pueden
+            servir como claves en un diccionario, a diferencia de las listas. </li>
+          <li>Pueden desempaquetarse: asignar los elementos de una tupla directamente a variables individuales. Esta
+            característica es muy útil en Python y se aplica tanto a tuplas como a otros contenedores iterables. </li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="text-h3"><a href="./sets.html">SETS</a></h3>
+        <p class="text-p">
+          Un set en Python es un tipo de dato incorporado que representa una colección desordenada y sin elementos
+          duplicados. Es útil cuando necesitas almacenar elementos únicos y realizar operaciones de conjuntos como
+          uniones, intersecciones o diferencias.
+        </p>
+        <ul class="text-ol">
+          <h4>Características principales</h4>
+          <br>
+          <li>No ordenado: Los elementos en un set no tienen un orden fijo. No puedes acceder a ellos mediante índices
+            como en una lista o una tupla.</li>
+          <li>Mutable, pero con elementos inmutables: Puedes agregar o eliminar elementos de un set, pero los elementos
+            dentro del set deben ser de tipos inmutables (como números, cadenas o tuplas). No puedes usar listas o
+            diccionarios como elementos de un set.</li>
+          <li>Heterogénea: Puede contener elementos de diferentes tipos.</li>
+          <li>No aceptan duplicados: Un set no puede contener duplicados. Al convertir otras colecciones (listas,
+            tuplas, etc.) a sets, automáticamente se eliminan los elementos duplicados.</li>
+          <li>Operaciones matemáticas: Los sets soportan operaciones como unión, intersección, diferencia y diferencia
+            simétrica, similares a los conceptos en teoría de conjuntos. </li>
+          <li>Pueden desempaquetarse: los sets pueden desempaquetarse utilizando el operador de desempaquetado (*). Este
+            operador extrae todos los elementos del set y los convierte en elementos separados que se pueden usar en
+            otras estructuras, como listas, tuplas, o como argumentos en funciones. Sin embargo, dado que los sets no
+            tienen un orden definido, el orden en el que se desempaquetan los elementos es arbitrario. </li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="text-h3"><a href="./diccionarios.html">DICTIONARIES</a></h3>
+        <p class="text-p">
+          Un diccionario en Python es un tipo de dato que permite almacenar colecciones de pares clave-valor. Es una
+          estructura muy útil cuando se necesita asociar un conjunto de valores con un conjunto de claves o llaves que
+          sirven como índices únicos.
+        </p>
+        <ul class="text-ol">
+          <h4>Características principales</h4>
+          <br>
+          <li>Claves y valores:
+            <ul>
+              <li>Claves únicas: Cada clave en un diccionario debe ser única. Si se asigna un nuevo valor a una clave
+                existente, sobrescribirá el valor anterior.</li>
+              <li>Cualquier tipo inmutable como clave: Las claves deben ser de tipos inmutables, como cadenas, números o
+                tuplas (siempre que las tuplas solo contengan elementos inmutables).</li>
+              <li>Valores de cualquier tipo: Los valores pueden ser de cualquier tipo, incluidos otros diccionarios,
+                listas, o incluso funciones.</li>
+            </ul>
+          </li>
+          <li>Mutables: Los diccionarios son mutables, lo que significa que puedes agregar, modificar o eliminar
+            elementos después de haberlos creado.</li>
+          <li>Ordenados: Desde Python 3.7, los diccionarios conservan el orden de inserción de los elementos. Antes de
+            eso, no garantizaban un orden específico.</li>
+          <li></li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="text-h3"><a href="./compresion-de-listas.html">Comprensión de listas</a></h3>
+        <p class="text-p">
+          La comprensión de listas en Python es una forma concisa y elegante de crear listas nuevas a partir de
+          iterables existentes, como listas, tuplas, conjuntos o rangos. Permite escribir bucles y condiciones en una
+          sola línea de código, lo que puede hacer que el código sea más legible y eficiente.
+        </p>
+        <ul class="text-ol">
+          <h4>Sintaxis básica:</h4>
+          <br>
+          <li>[nueva_expr for elemento in iterable if condicion]</li>
+          <ol>
+            <li>nueva_expr: La expresión que define qué se incluirá en la nueva lista.</li>
+            <li>for elemento in iterable: Itera sobre el iterable existente.</li>
+            <li>if condicion: (opcional) Filtra los elementos según una condición.</li>
+          </ol>
+          Ventajas:
+          Sintaxis más compacta y legible.
+          Mejor rendimiento en comparación con bucles tradicionales. <br>
+          Cuándo evitarlo:
+          Cuando la lógica es compleja, ya que puede reducir la legibilidad del código. En esos casos, un bucle for
+          convencional es preferible.
+        </ul>
+      </section>
+      <section>
+        <h3 class="text-h3"><a href="./desempaquetado.html">Desempaquetado de datos</a></h3>
+        <p class="text-p">
+          En Python, muchas estructuras de datos pueden desempaquetarse utilizando la sintaxis de desempaquetado (* o
+          **) o asignación múltiple.
+        </p>
+        <ul class="text-ol">
+          <h4>Estas estructuras incluyen:</h4>
+          <br>
+          <li>Listas y tuplas</li>
+          <li>Sets</li>
+          <li>Diccionarios</li>
+          <li>Cadenas</li>
+          <li>Generadores e Iteradores</li>
+          <li>Clases personalizadas</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <footer class="footer-text">
+    <p>Web Site by Kroma 2024</p>
+    <ul>
+      <li><a href="https://www.instagram.com/rocxx._/">Instagram</a></li>
+      <li><a href="">Linkedin</a></li>
+      <li><a href="">GitHub</a></li>
+    </ul>
+  </footer>
+</body>
+
+</html>

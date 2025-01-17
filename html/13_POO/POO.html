@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POO</title>
+  <!-- Tema CSS para Prism -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <!-- Script base de Prism -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <!-- Componente para Python -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <style>
+    body {
+      min-height: 15000px;
+    }
+  </style>
+  <style>
+    pre {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      color: #2208e3;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section>
+      <h1>Introducción</h1>
+      <p>
+        La herencia en Python es un principio fundamental de la Programación Orientada a Objetos (POO) que permite a una
+        clase (llamada clase hija o subclase) heredar propiedades y comportamientos (atributos y métodos) de otra clase
+        (llamada clase padre o superclase). Esto permite reutilizar el código, extender la funcionalidad y organizar
+        mejor las relaciones entre clases.
+      </p>
+      <h2>Características principales de la herencia en Python:</h2>
+      <ol>
+        <li>Reutilización de código: La subclase puede usar los métodos y atributos definidos en la superclase sin
+          necesidad de volver a definirlos.</li>
+        <li>Extensibilidad: Puedes agregar nuevos métodos y atributos en la subclase o sobrescribir los heredados para
+          personalizarlos.</li>
+        <li>Jerarquía: Las clases pueden formar jerarquías donde una subclase puede heredar de otra subclase, creando
+          niveles de herencia.</li>
+      </ol>
+      <h3>Sintáxis básica</h3>
+      <pre>
+        <code class="language-python">
+class SuperClase:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def saludar(self):
+        print(f"Hola, soy {self.nombre}")
+
+class SubClase(SuperClase):
+    def __init__(self, nombre, edad):
+        # Llamamos al constructor de la superclase
+        super().__init__(nombre)
+        self.edad = edad
+
+    def presentar(self):
+        print(f"Soy {self.nombre} y tengo {self.edad} años")
+
+# Crear un objeto de la subclase
+persona = SubClase("Ana", 25)
+
+# Llamar métodos heredados y propios
+persona.saludar()       # Salida: Hola, soy Ana
+persona.presentar()     # Salida: Soy Ana y tengo 25 años
+        </code>
+      </pre>
+    </section>
+    <section>
+      <h1>Conceptos avanzados relacionados con la herencia:</h1>
+      <ol>
+        <li>Sobrescritura de métodos: Una subclase puede redefinir un método de la superclase si necesita un
+          comportamiento diferente.</li>
+        <pre><code class="language-python">
+class SubClase(SuperClase):
+    def saludar(self):
+        print(f"¡Hola, {self.nombre}! Bienvenido a la subclase")
+        </code></pre>
+        <li>Uso de super(): Permite acceder a métodos y atributos de la superclase.</li>
+        <pre>
+          <code class="language-python">
+def __init__(self, nombre, edad):
+    super().__init__(nombre)  # Llama al constructor de la superclase
+    self.edad = edad
+          </code>
+        </pre>
+        <li>Herencia múltiple: Una clase puede heredar de varias superclases en Python.</li>
+        <pre><code class="language-python">
+class ClaseA:
+    pass
+
+class ClaseB:
+    pass
+
+class ClaseC(ClaseA, ClaseB):
+    pass
+        </code></pre>
+        <li>Tipos de relaciones</li>
+        <ul>
+          <li>Herencia simple: Una clase hereda de una única superclase.</li>
+          <li>Herencia múltiple: Una clase hereda de dos o más superclases.</li>
+          <li>Herencia jerárquica: Varias clases heredan de una misma superclase.</li>
+        </ul>
+        <li>Polimorfismo: El polimorfismo en Python, como en otros lenguajes de programación orientada a objetos, es la
+          capacidad de un objeto o función de tomar múltiples formas. En términos simples, el polimorfismo permite que
+          un mismo método o función pueda operar sobre diferentes tipos de objetos o clases, y comportarse de manera
+          específica dependiendo del contexto.</li>
+        <pre><code class="language-python">
+class Animal:
+    def hacer_sonido(self):
+        print("El animal hace un sonido")
+
+class Perro(Animal):
+    def hacer_sonido(self):
+        print("El perro ladra")
+
+class Gato(Animal):
+    def hacer_sonido(self):
+        print("El gato maúlla")
+
+# Uso del polimorfismo
+animales = [Perro(), Gato(), Animal()]
+
+for animal in animales:
+    animal.hacer_sonido()
+# Salida:
+# El perro ladra
+# El gato maúlla
+# El animal hace un sonido
+        </code></pre>
+        <pre><code class="language-python">
+
+# Polimorfismo
+class Animal:
+    def hacer_sonido(self):
+        print('Hago un pitido')
+
+class Perro(Animal):
+    # pass
+    def hacer_sonido(self):
+        print('Puedo ladrar')
+
+class Gato(Animal):
+    def hacer_sonido(self):
+        print('Puedo maullar')
+
+# Funcion polimorfica
+def hacer_sonido_animal(animal):  # duck typing
+    animal.hacer_sonido()
+
+print('*** Ejemplo Polimorfismo ***')
+print('Clase Padre Animal: ')
+animal1 = Animal()
+hacer_sonido_animal(animal1)
+# Definimos un objeto de la clase Perro
+print('\nClase Hija Perro: ')
+perro1 = Perro()
+hacer_sonido_animal(perro1)
+# Definimos un objeto de la clase Gato
+print('\nClase Hija Gato: ')
+gato1 = Gato()
+hacer_sonido_animal(gato1)
+        </code></pre>
+      </ol>
+    </section>
+  </main>
+
+
+</body>
+
+</html>

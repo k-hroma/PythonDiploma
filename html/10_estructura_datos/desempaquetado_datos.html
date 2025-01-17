@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desempaquetado de datos</title>
+  <!-- Tema CSS para Prism -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <!-- Script base de Prism -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <!-- Componente para Python -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <style>
+    body {
+      min-height: 5000px;
+    }
+  </style>
+  <style>
+    pre {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      color: #2208e3;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <header>
+      <h1>Desempaquetado de estructura de datos</h1>
+      <p>
+        En Python, muchas estructuras de datos pueden desempaquetarse utilizando la sintaxis de desempaquetado (* o
+        **) o asignación múltiple.
+      </p>
+    </header>
+    <main>
+      <h4>Estas estructuras incluyen:</h4>
+      <p>
+      <ol>
+        <li>
+          <h4>Listas y tuplas</h4>
+          <h5>* Puedes desempaquetar valores directamente en variables:</h5>
+          <pre><code class="language-python">
+lista = [1, 2, 3]
+a, b, c = lista  # a=1, b=2, c=3
+            </code></pre>
+          <pre><code class="language-python">
+tupla = (4, 5, 6)
+x, y, z = tupla # x=4, y=5, z=6
+            </code></pre>
+          <h5>* También puedes usar * para capturar valores restantes:</h5>
+          <pre><code class="language-python">
+lista = [1, 2, 3, 4, 5]
+a, *b, c = lista  # a=1, b=[2, 3, 4], c=5
+            </code></pre>
+        </li>
+        <li>
+          <h4>Sets:</h4>
+          <h5>* Aunque los conjuntos no son ordenados, puedes desempaquetarlos:</h5>
+          <pre><code class="language-python">
+conjunto = {7, 8, 9}
+a, b, c = conjunto  # El orden no está garantizado
+            </code></pre>
+        </li>
+        <li>
+          <h4>Diccionarios</h4>
+          <h5>* Claves por defecto:</h5>
+          <pre><code class="language-python">
+diccionario = {'x': 10, 'y': 20, 'z': 30}
+a, b, c = diccionario  # a='x', b='y', c='z'
+            </code></pre>
+          <h5>* Valores usando .values():</h5>
+          <pre><code class="language-python">
+valores = diccionario.values()
+a, b, c = valores  # a=10, b=20, c=30
+            </code></pre>
+          <h5>* Claves y valores como tuplas con .items():</h5>
+          <pre><code class="language-python">
+items = diccionario.items()
+for clave, valor in items:
+  print(clave, valor)
+            </code></pre>
+        </li>
+        <li>
+          <h4>Strings</h4>
+          <h5>* Las cadenas se pueden desempaquetar carácter por carácter:</h5>
+          <pre><code class="language-python">
+cadena = "abc"
+a, b, c = cadena  # a='a', b='b', c='c'
+            </code></pre>
+        </li>
+        <li>
+          <h4>Generadores y Iteradores</h4>
+          <h5>* Si defines un método __iter__ o __getitem__, puedes hacer que tu clase soporte desempaquetado:</h5>
+          <pre><code class="language-python">
+            class MiClase:
+            def __init__(self):
+            self.datos = [1, 2, 3]
+
+            def __iter__(self):
+            return iter(self.datos)
+            obj = MiClase()
+            a, b, c = obj # a=1, b=2, c=3
+            </code></pre>
+        </li>
+        <li>
+          <h4>Desempaquetado Extendido</h4>
+          <h5>* Usando * para listas y ** para diccionarios:</h5>
+          <p># Para listas</p>
+          <pre><code class="language-python">
+lista1 = [1, 2, 3]
+lista2 = [4, 5]
+nueva_lista = [*lista1, *lista2]  # [1, 2, 3, 4, 5]
+            </code></pre>
+          <p># Para diccionarios</p>
+          <pre><code class="language-python">
+dic1 = {'a': 1, 'b': 2}
+dic2 = {'c': 3}
+nuevo_dic = {**dic1, **dic2}  # {'a': 1, 'b': 2, 'c': 3}
+            </code></pre>
+        </li>
+      </ol>
+      </p>
+    </main>
+    <footer>
+      <a href="C:\Users\Rocio\Desktop\diseño de aplicaciones\repaso\11_funciones\html\funciones.html">Siguiente</a>
+      <br>
+      <a href="C:\Users\Rocio\Desktop\diseño de aplicaciones\repaso\index.html">Index</a>
+
+    </footer>
+  </article>
+</body>
+
+</html>

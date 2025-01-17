@@ -1,0 +1,314 @@
+""""Ejemplos sencillos"""
+# Definir una funcion para mandar a saludar
+def saludar():  # Firma del metodo
+    # Cuerpo de la funcion
+    print('Saludos desde una función...')
+
+# Programa principal, llamamos a la funcion
+
+saludar()  # Saludos desde una función...
+saludar()  # Saludos desde una función...
+saludar()  # Saludos desde una función...
+
+
+# Definir una funcion para mandar a saludar
+def saludar(mensaje):
+    print(f'Mensaje recibido: {mensaje}')
+
+# Programa principal, llamamos a la funcion
+
+saludar('Hola a todos')
+
+
+print('*** Función sumar ***')
+
+# Definimos la funcion
+def sumar(a, b):
+    resultado_suma = a + b
+    return resultado_suma
+
+# Llamar a la funcion
+resultado_funcion = sumar(8, 5)
+print(f'Resultado función sumar: {resultado_funcion}')
+
+resultado_funcion = sumar(9, 15)
+print(f'Resultado función sumar: {resultado_funcion}')
+
+
+def sumar(a, b):
+    resultado = a + b
+    return resultado  # Devuelve el resultado de la suma
+
+# Llamamos a la función y usamos el valor devuelto
+suma = sumar(3, 5)
+print(suma)
+# Muestra: 8
+
+print("**********************************")
+def sumar(a, b):
+    print(a + b)
+
+# Llamamos a la función pero solo se muestra el resultado, no hay valor devuelto
+suma = sumar(3, 5)  # Esto muestra 8 en pantalla, pero no devuelve nada
+print(suma)
+
+print("**********************************")
+def sumar(a, b):
+    resultado = a + b
+    print(resultado)
+
+suma = sumar(3, 5)  # Esto muestra 8 en pantalla, pero no devuelve nada
+print(suma)
+
+
+"""Funciones con argumentos con nombre"""
+
+
+def imprimir_persona(nombre, apellido='', edad=0):
+    print(f'Persona: nombre = {nombre}, apellido = {apellido}, edad = {edad}')
+
+# Primero llamamos la funcion pasando los argumentos de manera posicional
+imprimir_persona('Ricardo', 'Quintana', 32)
+# Llamar la funcion usando argumentos por nombre
+imprimir_persona(nombre='Carlos', apellido='Rojas', edad=28)
+# Llamar la funcion usando argumentos por nombre, pero intercambiando el orden
+imprimir_persona(edad=28, apellido='Rojas', nombre='Carlos')
+# Argumentos con valor por default
+imprimir_persona(nombre='Carlos')
+imprimir_persona(nombre='Carlos', apellido='Rojas')
+imprimir_persona(apellido='Rojas', nombre='Carlos')
+
+
+def ejemplo(arg1, arg2, *args, kwarg1="default", **kwargs):
+    print(f"arg1: {arg1}, arg2: {arg2}") #  arg1: 1, arg2: 2
+    print(f"args: {args}")  # args: (3, 4, 5, 6, 7)
+    print(f"kwarg1: {kwarg1}") # kwarg1: nuevo valor
+    print(f"kwargs: {kwargs}")  # kwargs: {'extra': 'valor extra'}
+
+ejemplo(1, 2, 3, 4, 5, 6, 7, kwarg1="nuevo valor", extra="valor extra")
+
+
+"""Regresar una tupla de valoers desde una función"""
+
+
+# Definicion de la funcion
+def persona_mayusculas(nombre, apellido, edad):
+    print('Esta función regresa varios valores (tupla)')
+    return (nombre.upper(), apellido.upper(), edad)
+
+# Programa principal
+nombre, apellido, edad = persona_mayusculas('Sandra', 'Jimenez', 42)
+print(f'Resultado Persona: nombre = {nombre}, apellido = {apellido}, edad = {edad}')
+variable_tupla = nombre, apellido, edad
+variable_lista = list(variable_tupla)
+print(f"Convertir tupla: {variable_tupla} a lista: {variable_lista}")
+
+
+print('*** Obtener coordenadas x,y,z ***')
+
+def obtener_coordenadas():
+    x, y, z = 10, 20, 30
+    return x, y, z
+
+# Llamar la funcion
+resultado = obtener_coordenadas()
+print(resultado)  #  (10, 20, 30)
+
+# Unpacking de la tupla
+x1, y1, z1 = resultado
+print(f'Coordenada x = {x1}, Coordenada y = {y1}, Coordenada z = {z1}')  # Coordenada x = 10, Coordenada y = 20, Coordenada z = 30
+
+
+"""Alcance de variables"""
+
+# Variable global
+contador_global = 0
+
+def incrementar_contador():
+    # Declaramos una variable local
+    contador_local = 0
+    # usar la variable global
+    global contador_global
+    # incrementamos la variable global
+    contador_global += 1
+    # incrementar la variable local
+    contador_local += 1
+    # Imprimimos ambos contadores
+    print(f'Contador local: {contador_local}')
+    print(f'Contador global: {contador_global}\n')
+
+# Llamamos varias vece la funcion
+incrementar_contador()
+incrementar_contador()
+incrementar_contador()
+
+# Terminando el programa
+print(f'Valor variable global: {contador_global}')
+
+
+y = 20  # Alcance global
+
+def otra_funcion():
+    print(y)  # Se puede acceder a la variable global
+
+otra_funcion()  # 20
+print(y, "desde afuera de la f(x)")
+
+
+def funcion_externa():
+    a = 5  # Variable en alcance "enclosing"
+    print(a)  # 5
+
+    def funcion_interna():
+        nonlocal a  # Si no estuviese esta variabla daría error
+        a += 1  # Modifica 'a' en el alcance de la función externa
+        print(a)  # 6
+
+    funcion_interna()
+    
+    print(a)  # 6 se modificó la variable definida en la función externa
+
+
+funcion_externa()
+
+"""Argumentos variables"""
+
+
+def superheroe_superpoderes(superheroe, nombre, *args):
+    print(f'Superheroe: {superheroe} - {nombre} - {args}')
+    # Iteramos los superpoderes
+    for superpoder in args:
+        print(f'\tSuperpoder: {superpoder}')
+
+# Llamar la funcion
+superheroe_superpoderes(
+    'Spiderman', 'Peter Parker', 'Instinto Arácnido', 'Teleraña')
+superheroe_superpoderes(
+    'Ironam', 'Tony Stark', 'Armadura', 'Playboy', 'Millonario')
+
+# Es opcional enviar argumentos variables
+superheroe_superpoderes('Mi vecino', 'Juan Perez')
+
+"""Almacenar los args variable en una tupla"""
+
+def superheroe_superpoderes(superheroe, nombre, *args):
+    print(f'Superheroe: {superheroe} - {nombre} - {args}')
+
+    # Crear una tupla para almacenar los superpoderes
+    superpoderes = ()
+    # Iteramos los superpoderes y agregarlos a una tupla
+    for superpoder in args:
+        print(f'\tSuperpoder: {superpoder}')
+        superpoderes += (superpoder,)
+    return superpoderes  # opcional
+
+# Llamar la funcion y se obtiene la tupla
+tupla_superpoderes = superheroe_superpoderes(
+    'Spiderman', 'Peter Parker', 'Instinto Arácnido', 'Teleraña')
+tupla2_superpoderes = superheroe_superpoderes(
+    'Ironam', 'Tony Stark', 'Armadura', 'Playboy', 'Millonario')
+
+# Es opcional enviar argumentos variables
+tupla3_superpoderes = superheroe_superpoderes('Mi vecino', 'Juan Perez')
+tupla_final = (tupla_superpoderes, tupla2_superpoderes, tupla3_superpoderes)
+print(tupla_final)
+
+"""Almacenar los args variable en una lista"""
+
+def superheroe_superpoderes(superheroe, nombre, *args):
+    print(f'Superheroe: {superheroe} - {nombre} - {args}')
+
+    # Crear una tupla para almacenar los superpoderes
+    superpoderes = []
+    # Iteramos los superpoderes y agregarlos a una tupla
+    for superpoder in args:
+        print(f'\tSuperpoder: {superpoder}')
+        superpoderes.append(superpoder)
+    return superpoderes  # opcional
+
+# Llamar la funcion y se obtiene la tupla
+lista_superpoderes = superheroe_superpoderes(
+    'Spiderman', 'Peter Parker', 'Instinto Arácnido', 'Teleraña')
+lista2_superpoderes = superheroe_superpoderes(
+    'Ironam', 'Tony Stark', 'Armadura', 'Playboy', 'Millonario')
+
+# Es opcional enviar argumentos variables
+lista3_superpoderes = superheroe_superpoderes('Mi vecino', 'Juan Perez')
+lista_final = [lista_superpoderes, lista2_superpoderes, lista3_superpoderes]
+print(lista_final)
+
+
+"""Argumentos variables en forma de dict"""
+
+def superheroe_superpoderes(nombre, *args, **kwargs):
+    print(f'Superheroe: {nombre} - {args} - Mas info: {kwargs}')
+
+# Llamarmos la funcion
+superheroe_superpoderes('Spiderman', 'Instinto Arácnido', edad=17, empresa='Marvel')
+superheroe_superpoderes('Ironman', 'Armandura','Playboy', edad=45)
+
+# Es opcional enviar argumentos variables
+superheroe_superpoderes('Mi vecino', personalidad='Buena onda!')
+
+
+"""Funcion sumar que acepta argumentos variables"""
+
+def sumar(*args):
+    total = 0
+    for numero in args:
+        total += numero
+        print(f"para {numero} el total parcial es {total}")
+    return total
+# Llamamos a la funcion sumar
+resultado = sumar(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+print(f'Resultado de la suma: {resultado}')
+
+
+"""Imprimir detalles de una persona usando kwargs """
+
+# Funcion que acepta argumentos variables en forma de llave-valor dict
+def imprimir_detalle_persona(**kwargs):
+    print('\nValores recibidos: ')
+    for llave, valor in kwargs.items():   # se aplica el unpacking
+        print(f'{llave}:{valor}')
+    
+
+imprimir_detalle_persona(nombre='Karla', edad=30, ciudad='México')
+imprimir_detalle_persona(nombre='Carlos', edad=28, ciudad='Guadalajara', puesto='Gerente')
+
+
+
+"""Utilizar una función que acepte la suma de kwargs"""
+print("operacion suma")
+suma_edades = 0
+
+def imprimir_detalle_persona(**kwargs):
+    global suma_edades
+    for clave, valor in kwargs.items():
+        print(clave, valor)
+    if kwargs["edad"]:
+        suma_edades += kwargs["edad"]
+
+
+imprimir_detalle_persona(nombre='Karla', edad=30, ciudad='México')
+imprimir_detalle_persona(nombre='Carlos', edad=28, ciudad='Guadalajara', puesto='Gerente')
+
+print(suma_edades)
+
+
+"""FUNCIONES RECURSIVAS"""
+print('*** Imprimir del 1 al 5 de forma recursiva ***')
+
+# definir la funcion recursiva
+def funcion_recursiva(numero):
+    # Caso Base
+    if numero == 1:
+        print(numero, end=' ')  # 1
+    # Caso recursivo
+    else:
+        print(numero, end=' ')
+        funcion_recursiva(numero - 1)
+        print(numero, end=' ')  # 2 3 4 5 
+
+# Programa principal
+funcion_recursiva(5)

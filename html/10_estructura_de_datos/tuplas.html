@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuplas</title>
+  <link rel="stylesheet" href="./listas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</head>
+
+<body>
+  <header>
+  </header>
+  <main>
+    <p>
+    <pre><code class="language-python">
+"<-----------------TUPLA----------------->"
+
+# Manejo de Tuplas
+mi_tupla = (1, 2, 3, 4, 5)
+print(mi_tupla)
+
+# No podemos modificar una tupla
+mi_tupla[0] = 10  # da error
+mi_tupla.append(6)  # da error
+
+
+# Iteramos los elementos de una tupla
+for elemento in mi_tupla:
+    print(elemento, end=' ')
+
+# Crear una tupla para una coordenada x,y
+coordenadas = (3, 5)
+
+# Accedemos a cada elemento de la tupla
+print(f'\nCoordenada en el eje x: {coordenadas[0]}')
+print(f'Coordenada en el eje y: {coordenadas[1]}')
+
+# Crear una tupla unitaria
+tupla_un_elemento = 10,
+print(f'Tupla de un elemento: {tupla_un_elemento}')
+
+# Tupla anidada
+tuplas_anidada = (1, (2, 3), (4, 5))
+print(f'Segundo elemento tupla anidada: {tuplas_anidada[1]}')
+
+"""*** Desempaquetado de Tuplas ***"""
+
+# unpacking
+producto = ('P001', 'Camisa', 20.00)
+
+# Desempaquetado
+id, descripcion, precio = producto
+
+# Imprimir los valores
+print(f'Tupla completa: {producto}')
+# Valores independientes ya desempaquetados
+print(f'Producto: id = {id}, descripcion = {descripcion}, precio = {precio}')
+
+# Desempaquetado parcial
+
+mi_tupla = (10, 20, 30, 40, 50)
+a, b, *_ = mi_tupla  # Recoge los primeros dos elementos
+print(a, b)  # Imprime: 10 20
+
+a, *medio, c = mi_tupla
+print(medio)  # Imprime: [20, 30, 40]
+
+# Intercambio de variables
+
+x, y = 5, 10
+x, y = y, x  # Intercambia los valores
+print(x, y)  # Imprime: 10 5
+
+# uso en funciones
+
+def coordenadas():
+    return (42, -71)
+
+lat, lon = coordenadas()
+print(lat, lon)  # Imprime: 42 -71
+
+# Otras operaciones comunes
+
+t1 = (1, 2)
+t2 = (3, 4)
+t3 = t1 + t2  # Resultado: (1, 2, 3, 4)
+print(2 in t3)  # Imprime: True
+
+# Se pueden usar como claves en diccionarios
+
+diccionario = {(1, 2): "valor"}
+print(diccionario[(1, 2)])  # Imprime: valor
+
+
+*** Combinación de Listas y Tuplas ***
+
+# definir una lista que almacena tuplas de productos
+
+productos = [
+    ('P001', 'Camiseta', 20.00),
+    ('P002', 'Jeans', 30.00),
+    ('P003', 'Sudadera', 40.00)
+]
+
+# Imprimir la informacion de cada producto
+# y ademas calculamos el precio total
+
+precio_total = 0
+
+print('Información de los productos: ')
+for producto in productos:
+    # print(producto)
+    id, descripcion, precio = producto
+    # unpacking
+    print(
+      f'Producto: id = {id}, descripcion = {descripcion}, precio = ${precio}')
+    precio_total += precio  # producto[2]
+print(f'Precio total de los productos: ${precio_total}')
+
+</code></pre>
+    </p>
+  </main>
+</body>
+
+</html>

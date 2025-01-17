@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuplas</title>
+  <link rel="stylesheet" href="./listas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</head>
+
+<body>
+  <header>
+  </header>
+  <main>
+    <p>
+    <pre><code class="language-python">
+"<-----------------Comprensión de listas----------------->"
+
+# Una lista con el cuadrado de cada numero
+numeros = [1, 2, 3, 4, 5]
+cuadrados = [x**2 for x in numeros]
+print(cuadrados)
+
+# Lista de numeros pares
+numeros = range(10+1)
+pares = [x for x in numeros if x % 2 == 0]
+print(pares)
+
+# Lista saludando a cada nombre
+nombres = ['Ana', 'Jerónimo', 'Carlos']
+saludando = [f'Hola {nombre}' for nombre in nombres]
+print(saludando)
+
+# Aplicar una transformación con condición:
+numeros = [1, 2, 3, 4, 5]
+transformar = [n * 2 if n % 2 == 0 else n * 3 for n in numeros]
+print(transformar)
+</code></pre>
+    </p>
+  </main>
+</body>
+
+</html>

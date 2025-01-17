@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funciones</title>
+  <!-- Estilo de Prism.js para resaltar sintaxis -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+
+  <!-- Estilos adicionales para mejorar el diseño de la página -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      min-height: 20000px;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: "Courier New", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <header>
+      <h1>
+        Funciones en Python
+      </h1>
+      <p>
+        Las funciones en Python son bloques de código que realizan una tarea específica y pueden ser reutilizados en
+        diferentes partes de un programa. Sirven para organizar el código, hacerlo más legible, evitar redundancia y
+        facilitar el mantenimiento.
+      </p>
+    </header>
+    <main>
+      <section>
+        <h3>Características de las funciones en Python:</h3>
+        <p>
+        <ol>
+          <li>Reutilización de código: Puedes escribir el código una vez y usarlo varias veces.</li>
+          <li>Modularidad: Dividen el programa en partes más manejables.</li>
+          <li>Legibilidad: Facilitan la comprensión del propósito del código.</li>
+          <li>Facilidad de depuración: Separar funcionalidades específicas en funciones simplifica la identificación de
+            errores.</li>
+          <li>Parametrización: Las funciones pueden ser diseñadas para aceptar parámetros, lo que hace más flexible los
+            programas.</li>
+        </ol>
+        </p>
+      </section>
+      <section>
+        <h3>Definición de funciones</h3>
+        <p>
+          En Python, las funciones se definen con la palabra clave def, seguida del nombre de la función, paréntesis y
+          dos
+          puntos. El bloque de código dentro de la función está indentado.
+        </p>
+        <h4>Sintaxis básica: </h4>
+        <!-- Código con resaltado de sintaxis para Python -->
+        <pre><code class="language-python">
+        def nombre_funcion(parametros):
+        """Docstring opcional: describe lo que hace la función."""
+            # Bloque de código
+            return resultado  
+            # Opcional: Devuelve un valor
+    
+      </code></pre>
+        <h4>Ejemplo sencillo:</h4>
+        <pre><code class="language-python">
+        def saludar(nombre):
+        """Esta función imprime un saludo."""
+            print(f"Hola, {nombre}!")
+        # Llamar a la función
+        saludar("Mundo")  # Salida: Hola, Mundo!
+      </code></pre>
+        <h4>Partes de una función:</h4>
+        <ol>
+          <li>Nombre de la función: Debe ser descriptivo y seguir las reglas de nombres en Python (letras, números,
+            guion
+            bajo, pero no empezar con un número).</li>
+          <li>Parámetros (opcional): Variables que se pasan a la función para personalizar su comportamiento.</li>
+          <pre><code class="language-python">
+        def sumar(a, b):
+            return a + b
+
+        print(sumar(3, 5))  # Salida: 8
+        </code></pre>
+          <li>Cuerpo: Contiene las instrucciones que se ejecutan cuando se llama a la función. </li>
+          <li>Valor de retorno(return(opcional)): Las funciones pueden devolver un valor usando return.</li>
+          <pre><code class="language-python">
+        def cuadrado(n):
+            return n ** 2
+
+        resultado = cuadrado(4)
+        print(resultado)  # Salida: 16
+        </code></pre>
+        </ol>
+      </section>
+      <section>
+        <h3>Tipos de funciones en Python</h3>
+        <p>
+        <ol>
+          <li>Funciones definidas por el usuario: Escritas por el programador para tareas específicas.</li>
+          <pre><code class="language-python">
+        def resta(a, b):
+            return a - b
+        </code></pre>
+          <li>Funciones integradas: Funciones predefinidas de Python, como print(), len(), sum(), etc.</li>
+          <pre><code class="language-python">
+        print(len("Hola"))  
+        # Salida: 4
+        </code></pre>
+          <li>Funciones lambda(anónimas): Son funciones pequeñas y rápidas que se definen en una sola línea. </li>
+          <pre><code class="language-python">
+        cuadrado = lambda x: x ** 2
+        print(cuadrado(3))  
+        # Salida: 9
+        </code></pre>
+        </ol>
+        <h4>Ejemplo avanzado con parámetros y retorno: </h4>
+        <pre><code class="language-python">
+      def calcular_area_rectangulo(base, altura):
+      """Calcula el área de un rectángulo."""
+          return base * altura
+    
+      # Usar la función
+      area = calcular_area_rectangulo(5, 3)
+      print(f"El área del rectángulo es: {area}")  # Salida: 15
+      </code></pre>
+        </p>
+      </section>
+      <section>
+        <h3>Reutilización de código</h3>
+        <pre><code class="language-python">
+# Definimos la funcion sumar
+def sumar(a, b):
+    resultado_suma = a + b
+    return resultado_suma # Devuelve el resultado de la suma
+
+# Llama a la funcion
+resultado_funcion = sumar(8, 5)
+print(f'Resultado función sumar: {resultado_funcion}')
+
+# Reutiliza el código (la f(x))
+resultado_funcion = sumar(9, 15)
+print(f'Resultado función sumar: {resultado_funcion}')
+      </code></pre>
+        <p>
+        <h4>Explicación del código</h4>
+        <ol>
+          <li>La función sumar toma dos argumentos, a y b.</li>
+          <li>Calcula la suma y almacena el resultado en la variable resultado.</li>
+          <li>Con return resultado_suma, se envía el valor de la suma al lugar donde se llamó la función.</li>
+          <li>Ese valor se puede guardar en una variable (resultado_funcion) o usar directamente.</li>
+        </ol>
+        <h4>Sin utilizar "return"</h4>
+        <pre><code class="language-python">
+def sumar(a, b):
+    print(a + b) # Esto muestra 8 en pantalla
+
+suma = sumar(3, 5)  
+print(suma)         # Muestra: None (porque no hay un return que devuelva el resultado, sólo se muestra)
+      </code></pre>
+
+        </p>
+
+      </section>
+      <section>
+        <h3>Módulos en Python</h3>
+        <p>
+          Un módulo en Python es un archivo que contiene código Python (como funciones, clases o variables) que se puede
+          usar en otros programas o scripts. Los módulos permiten organizar y reutilizar el código, facilitando el
+          mantenimiento y la legibilidad.
+        <h4>Tipos de módulos</h4>
+        <ol>
+          <li>Módulos estándar: Vienen incluidos con Python. Ejemplo: math, os, random, etc.</li>
+          <li>Módulos de terceros: Debes instalarlos usando herramientas como pip. Ejemplo: numpy, pandas, etc</li>
+          <li>Módulos personalizados: Creados por ti o por otros programadores para un propósito específico. <br>
+            Ejemplo sencillo: <br>
+            <pre><code class="language-python">
+# creamos un módulo con la función que vamos a re utilizar en otros/s archivos:
+"modulo_funcion_sumar.py"
+# definimos la función sumar
+def sumar(a, b):
+resultado_suma = a + b
+return resultado_suma
+
+# hacemos una prueba de la función 
+print(sumar(7, 5))
+
+# para que únicamente se ejecute si se ejecuta este archivo y no desde otro archivo como "sumar.py"
+# agregamos el siguiente código
+if__name__ == "__main__":
+    print(sumar(7, 5))
+            </code></pre>
+            <pre><code class="language-python">
+# creamos un archivo donde vamos a utilizar la funcion modulo_funcion_sumar
+"sumar.py"
+# importamos el módulo donde está definida la función y la función
+from modulo_funcion_sumar import sumar
+# llamamos a la función, le pasamos los parámetros  y guardamos el resultado en una variable
+resultado_funcion = sumar(8, 5)
+# imprimimos el resultado de la función
+print(f"resultado de la funcion es {resultado_funcion}")
+            </code></pre>
+          </li>
+        </ol>
+        </p>
+      </section>
+      <section>
+        <h3>Formas principales de pasar argumentos en una función: </h3>
+        <p>
+        <ul>
+          <li>Por posición (Positional Arguments)</li>
+          <pre><code class="language-python">
+def sumar(a, b):
+    return a + b
+# 3 se asigna a 'a' y 4 a 'b'
+resultado = sumar(3, 4)
+print(resultado)
+# 7  
+          </code></pre>
+          <li>Por nombre (Keyword Arguments)</li>
+          <pre><code class="language-python">
+def saludar(nombre, mensaje):
+    print(f"{mensaje}, {nombre}!")
+# Especificando los nombres
+saludar(nombre="Ana", mensaje="Hola")  
+# Cambiar el orden funciona también
+saludar(mensaje="Hola", nombre="Juan")  
+          </code></pre>
+          <li>Por valores por default (Default Arguments)</li>
+          <pre><code class="language-python">
+def saludar(nombre, mensaje="Hola"):
+    print(f"{mensaje}, {nombre}!")
+
+saludar("Ana")  # Usa el valor predeterminado de mensaje
+saludar("Juan", "Buenos días")  # Sobrescribe el predeterminado
+          </code></pre>
+          <li>Número variable de argumentos</li>
+          <pre><code class="language-python">
+def sumar(*args):
+    return sum(args)
+
+print(sumar(1, 2, 3, 4))  # 10
+print(sumar())  # 0
+
+def imprimir_info(**kwargs):
+    for clave, valor in kwargs.items():
+        print(f"{clave}: {valor}")
+
+imprimir_info(nombre="Ana", edad=25, ciudad="Madrid")
+          </code></pre>
+          <pre><code class="language-python">
+def superheroe_superpoderes(superheroe, nombre, *args):
+    print(f'Superheroe: {superheroe} - {nombre} - {args}')
+    # Iteramos los superpoderes
+    for superpoder in args:
+        print(f'\tSuperpoder: {superpoder}')
+
+# Llamar la funcion
+superheroe_superpoderes(
+    'Spiderman', 'Peter Parker', 'Instinto Arácnido', 'Teleraña')
+superheroe_superpoderes(
+    'Ironam', 'Tony Stark', 'Armadura', 'Playboy', 'Millonario')
+
+# Es opcional enviar argumentos variables
+superheroe_superpoderes('Mi vecino', 'Juan Perez')
+          </pre></code>
+          <pre><code class="language-python">
+# version reloaded lista de listas
+def superheroe_superpoderes(superheroe, nombre, *args):
+    print(f'Superheroe: {superheroe} - {nombre} - {args}')
+
+    # Crear una lista para almacenar los superpoderes
+    superpoderes = []
+    # Iteramos los superpoderes y agregarlos a una lista
+    for superpoder in args:
+        print(f'\tSuperpoder: {superpoder}')
+        superpoderes.append(superpoder)
+    return superpoderes  # opcional
+
+# Llamar la función y se obtienen las la listas
+lista_superpoderes = superheroe_superpoderes(
+    'Spiderman', 'Peter Parker', 'Instinto Arácnido', 'Teleraña')
+lista2_superpoderes = superheroe_superpoderes(
+    'Ironam', 'Tony Stark', 'Armadura', 'Playboy', 'Millonario')
+
+# Es opcional enviar argumentos variables
+lista3_superpoderes = superheroe_superpoderes('Mi vecino', 'Juan Perez')
+lista_final = [lista_superpoderes, lista2_superpoderes, lista3_superpoderes]
+print(lista_final)
+            </code></pre>
+          <pre><code class="language-python">
+# version reloades lista de tuplas:
+def superheroe_superpoderes(superheroe, nombre, *args):
+    print(f'Superheroe: {superheroe} - {nombre} - {args}')
+
+    # Crear una tupla para almacenar los superpoderes
+    superpoderes = ()
+    # Iteramos los superpoderes y los agregamos a una tupla
+    for superpoder in args:
+        print(f'\tSuperpoder: {superpoder}')
+        superpoderes += (superpoder,)
+    return superpoderes  # opcional
+
+# Llamar la funcion y se obtiene la tupla
+tupla_superpoderes = superheroe_superpoderes(
+    'Spiderman', 'Peter Parker', 'Instinto Arácnido', 'Teleraña')
+tupla2_superpoderes = superheroe_superpoderes(
+    'Ironam', 'Tony Stark', 'Armadura', 'Playboy', 'Millonario')
+
+# Es opcional enviar argumentos variables
+tupla3_superpoderes = superheroe_superpoderes('Mi vecino', 'Juan Perez')
+lista_final = [tupla_superpoderes, tupla2_superpoderes, tupla3_superpoderes]
+print(lista_final)
+            </code></pre>
+          <pre><code class="language-python">
+# *args - arguments - tupla
+# **kwargs - keyword arguments (key,value) como un dict
+
+def superheroe_superpoderes(nombre, *args, **kwargs):
+    print(f'Superheroe: {nombre} - {args} - Mas info: {kwargs}')
+
+# Llamarmos la funcion
+superheroe_superpoderes('Spiderman', 'Instinto Arácnido', edad=17, empresa='Marvel')
+superheroe_superpoderes('Ironman', 'Armandura','Playboy', edad=45)
+
+# Es opcional enviar argumentos variables
+superheroe_superpoderes('Mi vecino', personalidad='Buena onda!')
+            </code></pre>
+          <li>Combinación de métodos</li>
+          <pre><code class="language-python">
+def ejemplo(arg1, arg2, *args, kwarg1="default", **kwargs):
+    print(f"arg1: {arg1}, arg2: {arg2}")
+    print(f"args: {args}")
+    print(f"kwarg1: {kwarg1}")
+    print(f"kwargs: {kwargs}")
+
+ejemplo(1, 2, 3, 4, 5, 6, 7, kwarg1="nuevo valor", extra="valor extra")
+          </code></pre>
+          <li>Argumentos solo por nombre (*args obligatorio): Puedes obligar a que algunos argumentos solo se pasen por
+            nombre usando *.</li>
+          <pre><code class="language-python"> 
+def ejemplo(arg1, *, obligatorio):
+    print(f"arg1: {arg1}, obligatorio: {obligatorio}")
+
+ejemplo(5, obligatorio=10)  # Correcto
+# ejemplo(5, 10)  # Error: 'obligatorio' debe pasarse por nombre
+          </code></pre>
+        </ul>
+        </p>
+      </section>
+      <section>
+        <h3>Devolver una tupla de valores desde una función:</h3>
+        <p>Para luego asignar los elementos de la misma a una variable. Es muy útil para simplificar el manejo de datos
+        <pre><code class="language-python">
+# Definicion de la funcion
+def persona_mayusculas(nombre, apellido, edad):
+    print(f'Esta función regresa varios valores (tupla)')
+    return nombre.upper(), apellido.upper(), edad
+
+
+# Programa principal
+nombre, apellido, edad = persona_mayusculas('Sandra', 'Jimenez', 42)
+print(f'Resultado Persona: nombre = {nombre}, apellido = {apellido}, edad = {42}')
+
+# Convierto tupla a lista
+variable_tupla = nombre, apellido, edad
+variable_lista = list(variable_tupla)
+print(f"Convertir tupla: {variable_tupla} a lista: {variable_lista}")
+        </code></pre>
+        </p>
+      </section>
+      <section>
+        <h3>Alcance de variables en Python</h3>
+        <p>
+          El alcance de las variables en Python se refiere a las reglas que determinan desde dónde una variable puede
+          ser accedida o utilizada en un programa. Esto depende de dónde se declaró la variable y si pertenece a un
+          contexto global o local. <br>
+          Python sigue el principio LEGB, que representa el orden en el que busca variables:
+        <h4>Tipos de alcance</h4>
+        <ol>
+          <li>Local: Variables definidas dentro de una función o bloque.</li>
+          <pre><code class="language-python">
+def mi_funcion():
+    x = 10  # Alcance local
+print(x)
+
+mi_funcion()  # 10
+# print(x)  # Error: x no está definida fuera de la función
+          </code></pre>
+          <li>Global: Variables definidas en el nivel más alto del módulo (fuera de cualquier función o clase). Pueden
+            ser accedidas desde cualquier lugar del archivo (a menos que estén ocultas por una variable local con el
+            mismo nombre).</li>
+          <pre><code class="language-python">
+x = 10  # Alcance global
+def mi_funcion():
+    print(x)
+
+mi_funcion()  # 10
+print(x, "Desde fuera de la f(x)")
+          </code></pre>
+          <pre><code class="language-python">
+"""local // global"""
+
+# Declaramos una variable global
+contador_global = 0
+
+def incrementar_contador():
+    # Declaramos una variable local
+    contador_local = 0
+    # usar la variable global
+    global contador_global
+    # incrementamos la variable global
+    contador_global += 1
+    # incrementar la variable local
+    contador_local += 1
+    # Imprimimos ambos contadores
+    print(f'Contador local: {contador_local}')
+    print(f'Contador global: {contador_global}\n')
+
+# Llamamos varias vece la funcion
+incrementar_contador()
+incrementar_contador()
+incrementar_contador()
+
+# Terminando el programa
+print(f'Valor variable global: {contador_global}')
+          </code></pre>
+          <li>No local (Enclosing): Variables en funciones anidadas, en el ámbito de una función externa pero no global.
+            <br>
+            Si tienes funciones anidadas, la función interna puede acceder a las variables definidas en la función que
+            la contiene, pero no puede modificarlas directamente sin usar la palabra clave nonlocal.
+          </li>
+          <pre><code class="language-python">
+def funcion_externa():
+    a = 5  # Variable en alcance "enclosing"
+
+    def funcion_interna():
+    nonlocal a  # Si no estuviese esta variabla daría error
+    a += 1  # Modifica 'a' en el alcance de la función externa
+    print(a)
+
+    funcion_interna()
+    print(a)
+
+funcion_externa()
+# 6
+# 6
+          </code></pre>
+          <li>Built-in: Nombres reservados de Python o funciones predefinidas (como print, len). <br>
+            Python tiene un espacio de nombres "global" para palabras reservadas y funciones incorporadas. Estas están
+            disponibles siempre, pero pueden ser ocultadas si defines una variable con el mismo nombre.
+          </li>
+          <pre><code class="language-python">
+print(len("Hola"))  # 4 (len es una función built-in)
+
+len = 10  # Oculta la función built-in
+# print(len("Hola"))  # Error: 'int' no es callable
+          </code></pre>
+        </ol>
+        </p>
+
+      </section>
+      <section>
+        <h3>Ejemplos de funciones que aceptan argumentos variables:</h3>
+        <p>
+        <ol>
+          <li>F(x) que acepta args</li>
+          <pre><code class="language-python">
+def sumar(*args):
+    total = 0
+    for numero in args:
+        total += numero
+    return total
+
+# Llamamos a la funcion sumar
+resultado = sumar(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+print(f'Resultado de la suma: {resultado}')
+          </code></pre>
+          <li>F(x) que acepta kwargs</li>
+          <pre><code class="language-python">
+def imprimir_detalle_persona(**kwargs):
+    print('\nValores recibidos: ')
+for llave, valor in kwargs.items():
+    print(f'{llave}:{valor}')
+
+# Llamamos a la funcion
+imprimir_detalle_persona(nombre='Karla', edad=30, ciudad='México')
+imprimir_detalle_persona(nombre='Carlos', edad=28, ciudad='Guadalajara', puesto='Gerente')
+          </code></pre>
+        </ol>
+        </p>
+      </section>
+      <section>
+        <h3>Funciones recursivas</h3>
+        <p>Las funciones recursivas en Python (y en general en programación) son funciones que se llaman a sí mismas,
+          directa o indirectamente, para resolver un problema dividiéndolo en subproblemas más pequeños y manejables.
+        <h4>Características principales</h4>
+        <ol>
+          <li>Caso base: La función debe tener una condición que detenga la recursión (el caso base). Esto evita que la
+            función se llame indefinidamente y cause un desbordamiento de pila (stack overflow). </li>
+          <li>Caso recursivo: Es la parte de la función que llama a sí misma con un argumento modificado, acercándose al
+            caso base. </li>
+        </ol>
+        <h4>Sintáxis básica en Python</h4>
+        <pre><code class="language-python">
+def funcion_recursiva(parametro):
+    # Caso base
+    if condicion_para_detener: # ej: si n==1, entonces 
+        return resultado       # devuelve n
+    
+    # Caso recursivo
+    else:                      # si n!= 1 
+        return funcion_recursiva(nuevo_parametro) # entonces se llama a si misma con un parámetro distinto (n-1) 
+        </code></pre>
+        <pre><code class="language-python">
+# definir la funcion recursiva
+def funcion_recursiva(numero):
+    # Caso Base
+    if numero == 1:
+        print(numero, end=' ')  # 1
+    else: # Caso recursivo
+        funcion_recursiva(numero - 1)
+        print(numero, end=' ')
+
+# Programa principal
+funcion_recursiva(5)
+        </code></pre>
+        <h4>Ejecución paso a paso</h4>
+        <ol>
+          <li>Llamada inicial: funcion_recursiva(5)</li>
+          <ul>
+            <li>La condición if numero == 1 no se cumple porque numero = 5.</li>
+            <li>Entonces, se ejecuta el caso recursivo: funcion_recursiva(4).</li>
+          </ul>
+          <li>Segunda llamada: funcion_recursiva(4)</li>
+          <ul>
+            <li>La condición if numero == 1 no se cumple porque numero = 4.</li>
+            <li>Entonces, se ejecuta el caso recursivo: funcion_recursiva(3).</li>
+          </ul>
+          <li>() Quinta llamada: funcion_recursiva(1)</li>
+          <ul>
+            <li>La condición if numero == 1 se cumple porque numero = 1.</li>
+            <li>Se imprime 1.</li>
+          </ul>
+          <li>Resolución de la recursión (regresando a cada llamada previa):</li>
+          <ul>
+            <li>En la cuarta llamada (funcion_recursiva(2)), después de que se resuelve funcion_recursiva(1), se imprime
+              2.</li>
+            <li>En la tercera llamada (funcion_recursiva(3)), después de que se resuelve funcion_recursiva(2), se
+              imprime 3.</li>
+            <li>En la segunda llamada (funcion_recursiva(4)), después de que se resuelve funcion_recursiva(3), se
+              imprime 4.</li>
+            <li>En la primera llamada (funcion_recursiva(5)), después de que se resuelve funcion_recursiva(4), se
+              imprime 5.</li>
+        </ol>
+        <h4>Visualización de la pila de llamadas</h4>
+        <ol>
+          <li>Llamadas acumuladas (de arriba hacia abajo):</li>
+          <pre><code class="language-python">
+funcion_recursiva(5)
+funcion_recursiva(4)
+funcion_recursiva(3)
+funcion_recursiva(2)
+funcion_recursiva(1)  # Caso base
+          </code></pre>
+          <li>Resolviendo (de abajo hacia arriba):</li>
+          <pre><code class="language-python">
+* funcion_recursiva(1) imprime 1.
+* Regresa a funcion_recursiva(2), que imprime 2.
+* Regresa a funcion_recursiva(3), que imprime 3.
+* Regresa a funcion_recursiva(4), que imprime 4.
+* Regresa a funcion_recursiva(5), que imprime 5.
+
+"""
+Esto ocurre porque en una función recursiva, cada llamada a la función se apila en la memoria 
+(estructura de datos llamada pila de llamadas o call stack), y las llamadas se resuelven en 
+orden inverso al que fueron realizadas. 
+Esto es clave para entender por qué, después de alcanzar el caso base, 
+se imprimen primero las operaciones de las llamadas más recientes.
+"""
+          </code></pre>
+          <li>Razón principal: LIFO (Last In, First Out)</li>
+          <p>
+            La pila de llamadas sigue un comportamiento de Último en entrar, primero en salir (LIFO):
+
+            Cuando haces una llamada recursiva, esta se coloca "encima" de las llamadas previas en la pila.
+            El caso base marca el punto donde se detienen las llamadas adicionales, y entonces la ejecución regresa
+            desde la parte superior de la pila hacia abajo, resolviendo cada llamada pendiente.
+            Esto ocurre porque el flujo de ejecución debe terminar las operaciones pendientes en cada nivel antes de
+            pasar al nivel anterior.
+
+            En el caso de esta función, la impresión ocurre después de que las llamadas recursivas han sido resueltas,
+            lo
+            que hace que los números se impriman en orden creciente.
+          </p>
+        </ol>
+        <h4>Funciones recursivas pasando una lista y un diccionario como parámetro</h4>
+        <pre><code class="language-python">
+# Función recursiva pasando una lista como parámetro
+
+def funcion_recursiva(numero, lista):
+    # Caso base
+    if numero == 1:
+        lista.append(numero)  # Agregar el valor 1 a la lista
+    # Caso recursivo
+    else:
+        funcion_recursiva(numero - 1, lista)  # Llamar recursivamente con numero - 1
+        lista.append(numero)  # Agregar el valor actual a la lista
+
+# Programa principal
+resultados = []  # Lista vacía para almacenar los resultados
+funcion_recursiva(5, resultados)
+
+print(resultados)
+# Salida: [1, 2, 3, 4, 5]
+        </code></pre>
+        <pre><code class="language-python">
+# Función recursiva pasando un diccionario como parámetro
+
+def funcion_recursiva(numero, diccionario):
+    # Caso base
+    if numero == 1:
+        diccionario.update({numero: numero ** 2})  # Agregar clave y valor al diccionario
+    # Caso recursivo
+    else:
+        funcion_recursiva(numero - 1, diccionario)  # Llamada recursiva
+        diccionario[numero] = numero ** 2  # Agregar clave y valor al diccionario
+
+# Programa principal
+resultados = {}  # Diccionario vacío para almacenar los resultados
+funcion_recursiva(5, resultados)
+
+print(resultados)
+# Salida: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+"""
+Pasar un diccionario como argumento:
+
+Se pasa un diccionario vacío (resultados = {}) a la función.
+Este diccionario se actualiza en cada llamada recursiva.
+Agregar claves y valores al diccionario:
+
+En el caso base, el número 1 se agrega como clave y su cuadrado como valor (diccionario[numero] = numero ** 2).
+En el caso recursivo, después de completar la llamada a funcion_recursiva(numero - 1, diccionario), 
+se agrega el valor correspondiente al número actual.
+"""
+        </code></pre>
+        <h4>Factorial de un número con recursividad</h4>
+        <p>
+          El factorial de un número entero positivo n (denotado como n!) se define en principio como el producto de
+          todos los números enteros positivos desde 1 hasta n. Por definición, el factorial de 0 es 1. <br>
+          <br>
+          Matemáticamente se expresa como:
+        <pre>
+          n! = n.(n-1).(n-2).......1
+Ejemplo:
+          5!=5⋅4⋅3⋅2⋅1=120
+          3! = 3⋅2⋅1 = 6
+          0! =1 (por definición)
+        </pre>
+        </p>
+        <pre><code class="language-python">
+print('*** Factorial del Número 5 ***')
+
+def factorial_recursiva(numero):
+    if numero == 0 or numero == 1:
+        print(f'Resultado factorial parcial {numero} es: 1')
+        return 1
+    else:
+        factorial_parcial = numero * factorial_recursiva(numero - 1)
+        print(f'Resultado factorial parcial {numero} es: {factorial_parcial}')
+        return factorial_parcial
+
+numero = 5
+resultado = factorial_recursiva(numero)
+print(f'El factorial de {numero} es: {resultado}')
+        </code></pre>
+        <h5>Explicación del flujo</h5>
+        <ol>
+          <li>Impresión inicial: El programa comienza mostrando el mensaje "Factorial del Número 5" para informar al
+            usuario sobre la operación que realizará.</li>
+          <li>Definición de la función: Se define factorial_recursiva, una función que calcula el factorial de un número
+            utilizando recursión.</li>
+          <li>Caso base: Si el número es 0 o 1, se imprime el resultado parcial (1) y se devuelve este valor.</li>
+          <li>Caso recursivo:
+            <ul>
+              <li>Si el número es mayor que 1, se calcula el factorial parcial multiplicando el número
+                actual por el resultado de llamar a la función con el número reducido en 1.</li>
+              <li>Cada paso imprime el resultado parcial antes de devolverlo.</li>
+            </ul>
+          </li>
+          <li>Ejecución de la función: Se inicializa el cálculo del factorial llamando a factorial_recursiva(5).</li>
+          <li>Resultado final: Cuando la función recursiva termina, se imprime el resultado final: "El factorial de 5
+            es: 120".</li>
+          <li></li>
+        </ol>
+        </p>
+      </section>
+
+
+    </main>
+    <footer>
+      <a href="C:\Users\Rocio\Desktop\diseño de aplicaciones\repaso\10_listas\html\listas.html">Siguiente</a>
+      <br>
+      <a href="C:\Users\Rocio\Desktop\diseño de aplicaciones\repaso\index.html">Index</a>
+
+    </footer>
+    <!-- Script de Prism.js para aplicar el resaltado de sintaxis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  </article>
+</body>
+
+</html>

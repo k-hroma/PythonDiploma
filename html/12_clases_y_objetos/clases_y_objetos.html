@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clases y objetos</title>
+  <!-- Tema CSS para Prism -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <!-- Script base de Prism -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <!-- Componente para Python -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <style>
+    body {
+      min-height: 15000px;
+    }
+  </style>
+  <style>
+    pre {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      color: #2208e3;
+    }
+  </style>
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <article>
+    <header>
+      <section>
+        <h1>CLASES Y OBJETOS</h1>
+        <P>
+        <ul>
+          Una clase se compone de atributos y de métodos.
+          <li>Atributos: son las características de los objetos</li>
+          <li>Métodos: son las acciones que pueden realizar los objetos. Fuera de una clase se las llama funciones,
+            asociadas a una clase se las llama métodos</li>
+          <li>Instanciar una clase: una vez definida la clase, se pueden crear distintos objetos, eso es instanciar.
+          </li>
+          <li>Self: hace referencia a la instancia de clase. Es necesario para acceder a los atributos o métodos de
+            clase.</li>
+        </ul>
+        </P>
+      </section>
+      <section>
+        <h3>Diagrama básico de una clase.</h3>
+        <p>
+        <ul>
+          <li>Clase: Persona</li>
+          <li>Atributos: nombre, apellido, celular, etc.</li>
+          <li>Métods: agregar_nombre(), mostrar_persona(), etc.</li>
+          <li>Instancias de clase:</li>
+          <li>Self: hace referencia a la instancia de clase. Es necesario para acceder a los atributos o métodos de
+            clase.</li>
+          <ol>
+            <li>Objeto1: nombre=Martina, apellido=González, etc.</li>
+            <li>Objeto2:nombre=Juan, apellido=Perez, etc.</li>
+          </ol>
+        </ul>
+        </p>
+      </section>
+    </header>
+    <main>
+      <section>
+        <h1>Creacion de clases y objetos</h1>
+        <pre>
+          <code class="language-python">
+<strong>Ejemplo:</strong><br>
+# Definicion de una clase
+class Persona:
+
+    # Definición de los métodos
+    def inicializar_persona(self, nombre, apellido):
+        # Creamos los atributos de la clase
+        self.nombre = nombre
+        self.apellido = apellido
+
+    def mostrar_persona(self):
+        print(f'''Persona: 
+        Nombre: {self.nombre}
+        Apellido: {self.apellido}''')
+
+# Creacion de objetos
+if __name__ == '__main__':
+    # Creacion de un primer objeto
+    persona1 = Persona()  # Crea un objeto vacio en memoria
+    persona1.inicializar_persona('Layla', 'Acosta')
+    persona1.mostrar_persona()
+
+    # Creamos un segundo objeto
+    persona2 = Persona() # Crea un objeto vacio en memoria
+    persona2.inicializar_persona('Ian', 'Sánchez')
+    persona2.mostrar_persona()
+
+# Resultado en terminal =2 objetos de clase
+Persona: 
+        Nombre: Layla
+        Apellido: Acosta
+Persona:
+        Nombre: Ian
+        Apellido: Sánchez
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h2>Constructores en Python.</h2>
+        <p>
+          En Python, el constructor de una clase se define mediante el método especial __init__. <br>
+          Este método se ejecuta automáticamente cuando se crea una nueva instancia de la clase y generalmente se
+          utiliza para inicializar los
+          atributos del objeto. <br>
+          Se lo conoce como un método mágico o de tipo <em>dunder</em>.
+        </p>
+        <h3>Sintaxis de un constructor</h3>
+        <pre><code class="language-python">
+class NombreDeLaClase():
+        def__init__(self, parametro1, parametro2):
+            self.parametro1 = parametro1
+            self.parametro2 = parametro2
+        </code></pre>
+        <h3>Ejemplo de constructor</h3>
+        <pre><code class="language-python">
+# Definicion de una clase
+class Persona:
+
+    #  Constructor
+    def __init__(self, nombre, apellido):
+        # Creamos los atributos de la clase
+        self.nombre = nombre
+        self.apellido = apellido
+
+    # Método mostrar_persona    
+    def mostrar_persona(self):
+        print(f'''Persona: 
+        Nombre: {self.nombre}
+        Apellido: {self.apellido}''')
+
+
+# Creacion de objetos
+if __name__ == '__main__':
+    # Crea un objeto inicializando sus atributos de clase.
+    persona1 = Persona('Layla', 'Acosta')  # Crea un objeto vacio en memoria
+    persona1.mostrar_persona()
+
+    # Creamos un segundo objeto
+    persona2 = Persona('Ian', 'Sánchez')  # Crea un objeto vacio en memoria
+    # persona2.inicializar_persona('Ian', 'Sánchez')
+    persona2.mostrar_persona()
+        </code></pre>
+      </section>
+      <section>
+        <h3>Dirección de Memoria</h3>
+        <p>Cuando creamos un objeto (instancia de clase) se manda a llamar el constructor de clase (método __init__) y
+          se guarda un espacio en la memoria. <br> Este constructor se puede utilizar para crear atributos y asignarle
+          sus valores. <br> A cada objeto Python le asigna un lugar en la memoria. Cuando utilizamos esa instancia de
+          clase se hace referencia al lugar en la memoria que ocupa.
+        </p>
+        <pre><code class="language-python">
+<strong>Ejemplo:</strong><br>
+# Definicion de una clase
+class Persona:
+
+    #  Constructor
+    def __init__(self, nombre, apellido):
+        # Creamos los atributos de la clase
+        self.nombre = nombre
+        self.apellido = apellido
+
+    def mostrar_persona(self):
+        print(f'''Persona: 
+        Nombre: {self.nombre}
+        Apellido: {self.apellido}''')
+        # Comprobamos que self apunta al mismo espacio de memoria que apuntan los objetos creados: persona1 y persona2
+        print(f'Dir. mem self: {id(self)}')
+        print(f'Dir. mem hex self: {hex(id(self))}')
+
+
+# Creacion de objetos
+if __name__ == '__main__':
+    # Creacion de un primer objeto e inicialización de los atributos de clase.
+    persona1 = Persona('Layla', 'Acosta')  # Crea un objeto vacio en memoria
+    persona1.mostrar_persona()
+
+    # Mandamos a imprimir la dirección de memoria a la que apunta el objeto persona1
+    print(f'Dir. mem persona1: {id(persona1)}')
+    print(f'Dir. mem hex persona1: {hex(id(persona1))}')
+
+    # Creamos un segundo objeto
+    persona2 = Persona('Ian', 'Sánchez') # Crea un objeto vacio en memoria
+    persona2.mostrar_persona()
+
+    print(f'Dir. mem persona2: {id(persona2)}')
+    print(f'Dir. mem hex persona2: {hex(id(persona2))}')
+
+# Salida en consola: el parámetro de self apunta al objeto que se ejecuta:
+
+Persona: 
+        Nombre: Layla
+        Apellido: Acosta
+Dir. mem self: 2309600975632
+Dir. mem hex self: 0x219bef21b10
+Dir. mem persona1: 2309600975632
+Dir. mem hex persona1: 0x219bef21b10
+Persona:
+        Nombre: Ian
+        Apellido: Sánchez
+Dir. mem self: 2309601205968
+Dir. mem hex self: 0x219bef59ed0
+Dir. mem persona2: 2309601205968
+Dir. mem hex persona2: 0x219bef59ed0
+  
+        </code></pre>
+      </section>
+      <section>
+        <h3>Flexibilidad de constructores</h3>
+        <p>
+          La flexibilidad de constructores en Python se refiere a las capacidades y opciones que ofrece el lenguaje para
+          definir y personalizar los constructores de clases, lo que permite inicializar objetos de manera flexible.
+          <br>
+          Si hay más de un constructores en una clase, Python únicamente toma el último.
+        <ul>
+          <li>Argumentos por defecto</li>
+          <pre><code class="language-python">
+def __init__(self, operando1=None, operando2=None):
+    self.operando1 = operando1
+    self.operando2 = operando2
+
+def sumar(self):
+    resultado = self.operando1 + self.operando2
+    print(f'Resultado suma: {resultado}')
+
+def restar(self):
+    resultado = self.operando1 - self.operando2
+    print(f'Resultado resta: {resultado}')
+
+def multiplicar(self):
+    resultado = self.operando1 * self.operando2
+    print(f'Resultado multiplicación: {resultado}')
+
+def dividir(self):
+    resultado = self.operando1 / self.operando2
+    print(f'Resultado división: {resultado}')
+
+
+# Programa principal
+if __name__ == '__main__':
+    print('*** Ejemplo Clase Artimética ***')
+    
+    # Primer objeto
+    aritmetica1 = Aritmetica(5, 7)
+    print('Primer objeto')
+    aritmetica1.sumar()
+    aritmetica1.restar()
+    
+    # Segundo objeto
+    print('Segundo objeto')
+    aritmetica2 = Aritmetica(12, 16)
+    aritmetica2.sumar()
+    aritmetica2.restar()
+
+    # Tercer objeto
+    print('Tercer objeto')
+    aritmetica3 = Aritmetica(7)
+    aritmetica3.operando2 = 9
+    aritmetica3.sumar()
+
+    # Cuarto objeto
+    print('Cuarto objeto')
+    aritmetica4 = Aritmetica()
+    aritmetica4.operando1 = 2
+    aritmetica4.operando2 = 8
+    aritmetica4.sumar()
+
+    # Quinto objeto
+    print('Quinto objeto')
+    aritmetica5 = Aritmetica(operando2=4, operando1=3)
+    aritmetica5.sumar()
+            </code></pre>
+        </ul>
+        </p>
+
+      </section>
+      <section>
+        <h2>Encapsulamiento</h2>
+        <p>
+          El encapsulamiento en Python es un principio de programación orientada a objetos (POO) que se utiliza para
+          restringir el acceso directo a ciertos datos o métodos de una clase y permitir su manipulación solo a través
+          de
+          funciones específicas (como getters y setters). Esto ayuda a proteger la integridad de los datos y a ocultar
+          detalles internos de la implementación.
+
+          Aunque Python no tiene un mecanismo de acceso tan estricto como otros lenguajes (como private o protected en
+          Java o C++), ofrece ciertas convenciones y herramientas para implementar el encapsulamiento.
+        <ol>
+          <h3>Niveles de acceso:</h3>
+          <li>Público:
+            <ul>
+              <li>Los atributos y métodos son accesibles desde cualquier lugar.</li>
+              <li>Por convención, se declaran sin un prefijo especial.</li>
+              <li>Ejemplo:</li>
+              <pre><code class="language-python">
+  class Persona:
+      def __init__(self, nombre):
+          self.nombre = nombre  # Atributo público
+  
+  p = Persona("Ana")
+  print(p.nombre)  # Output: Ana
+                </code></pre>
+            </ul>
+          </li>
+          <li>Protegido:
+            <ul>
+              <li>Indica que un atributo o método está destinado a usarse solo dentro de la clase y sus subclases.</li>
+              <li>Se marca con un guion bajo _ como prefijo (esto es solo una convención, no una restricción real).</li>
+              <li>Ejemplo:
+                <pre><code class="language-python">
+  class Persona:
+      def __init__(self, nombre):
+          self._nombre = nombre  # Atributo protegido
+  
+      def _saludo(self):
+          return f"Hola, soy {self._nombre}"
+  
+  class Empleado(Persona):
+      def saludo_empleado(self):
+          return self._saludo() + " y trabajo aquí."
+  
+  e = Empleado("Luis")
+  print(e.saludo_empleado())  # Output: Hola, soy Luis y trabajo aquí.
+                </code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>Privado:
+            <ul>
+              <li>Se utiliza para restringir completamente el acceso directo desde fuera de la clase.</li>
+              <li>Se logra utilizando un doble guion bajo __ como prefijo del atributo o método.</li>
+              <li>Python aplica name mangling para evitar el acceso directo, pero no lo hace completamente imposible.
+              </li>
+              <li>Ejemplo:
+                <pre><code class="language-python">
+  class Persona:
+      def __init__(self, nombre):
+          self.__nombre = nombre  # Atributo privado
+  
+      def get_nombre(self):
+          return self.__nombre
+  
+  p = Persona("Ana")
+  print(p.get_nombre())  # Output: Ana
+  # print(p.__nombre)  # Error: AttributeError
+                </code></pre>
+              </li>
+            </ul>
+          </li>
+          <h3>Ejemplo unificado de cada nivel:</h3>
+          <pre><code class="language-python">
+# Definimos la clase coche
+class Coche:
+
+    def __init__(self, marca, modelo, color):
+        self.marca = marca   # Atributo publico
+        self._modelo = modelo   # Atributo protegido
+        self.__color = color   # Atributo privado
+
+    def conducir(self):
+        print(f'''Conduciendo el coche:
+        Marca: {self.marca}
+        Modelo: {self._modelo}
+        Color: {self.__color}''')
+
+
+# Programa principal
+if __name__ == '__main__':
+    # Crea un objeto coche1 de la clase Coche inicializando sus atributos.
+    coche1 = Coche('Toyota', 'Yaris', 'Azul')
+    coche1.conducir()
+    # Como estamos fuera de la clase no deberiamos acceder a los atributos que no sean publicos
+    coche1.marca = 'Toyota 2'
+    coche1._modelo = 'Yaris 2'  # Esto no es una buena practica
+    coche1.__color = 'Azul 2'  # Se ignoró la modificacion porque es un atributo privado.
+    coche1._Coche__color = 'Azul 3'  # Se puede modificar, pero es una mala practica
+    coche1.conducir()
+          </code></pre>
+        </ol>
+        </p>
+      </section>
+      <section>
+        <h3>Métodos Get y Set</h3>
+        <p>
+          Los getters y setters son métodos que permiten acceder y modificar atributos privados de manera controlada.
+          Aunque puedes acceder directamente a los atributos de un objeto en Python (ya que el lenguaje permite acceso
+          directo a los atributos públicos), los getters y setters son útiles en casos donde deseas:
+        <ul>
+          <li>Proteger atributos: Restringir o validar los valores antes de asignarlos.</li>
+          <li>Encapsular lógica: Agregar lógica adicional al acceder o modificar atributos.</li>
+          <li>Controlar cambios futuros: Si más adelante decides cambiar la implementación de un atributo, puedes
+            hacerlo sin afectar el código externo que usa tu clase.</li>
+        </ul>
+        <h3>Ejemplo:</h3>
+        <pre><code class="language-python">
+# Definimos la clase coche
+class Coche:
+
+    def __init__(self, marca, modelo, color):
+        self._marca = marca # Atributo protegido
+        self._modelo = modelo # Atributo protegido
+        self._color = color # Atributo protegido
+
+    def conducir(self):
+        print(f'''Conduciendo el coche:
+        Marca: {self._marca}
+        Modelo: {self._modelo}
+        Color: {self._color}''')
+        # como estamos dentro de la clase no es necesario utilizar los métodos get y set.
+
+    def get_marca(self):
+        return self._marca
+
+    def set_marca(self, marca):
+        self._marca = marca
+
+    def get_modelo(self):
+        return self._modelo
+
+    def set_modelo(self, modelo):
+        self._modelo = modelo
+
+    def get_color(self):
+        return self._color
+
+    def set_color(self, color):
+        self._color = color
+
+
+# Programa principal
+if __name__ == '__main__':
+    # Crea un objeto coche1 de la clase Coche inicializando sus atributos.
+    coche1 = Coche('Toyota', 'Yaris', 'Azul')
+    # Llama al método conducir del objeto coche1, mostrando los detalles del coche.
+    coche1.conducir()
+    # Actualiza los atributos usando los métodos "setter". 
+    # Esto evita modificar directamente los atributos protegidos, siguiendo el principio de encapsulación.
+    coche1.set_marca('Toyota 2')
+    coche1.set_modelo('Yaris 2')
+    coche1.set_color('Azul 2')
+    # Vuelve a imprimir los detalles del coche, reflejando los cambios.
+    coche1.conducir()
+        </code></pre>
+        <h4>Resumiendo las funciones</h4>
+        <ol>
+          <li>__init__:
+            <ul>
+              <li>Se ejecuta una sola vez, al crear el objeto.</li>
+              <li>Inicializa los atributos del objeto.</li>
+            </ul>
+          </li>
+          <li>Métodos set:
+            <ul>
+              <li>Permiten cambiar los valores de los atributos protegidos después de la creación del objeto.</li>
+              <li>No involucran el constructor __init__.</li>
+            </ul>
+          </li>
+          <li>Métodos get:
+            <ul>
+              <li>Permiten obtener los valores de los atributos protegidos de forma controlada.</li>
+              <li>No se utilizan en este ejemplo, pero son útiles para encapsular el acceso a los atributos.</li>
+            </ul>
+          </li>
+        </ol>
+        <pre><code class="language-python">
+<strong>Prueba</strong>
+class Coche:
+    def __init__(self, marca=None):
+        self._marca = marca
+
+    def conducir(self):
+        print("la marca es:", self._marca)
+
+    def set_marca(self, b):
+        self._marca = b
+    
+    def get_marca(self,):
+        return self._marca
+
+
+coche1 = Coche()
+coche1.conducir()
+print(coche1.get_marca())
+coche1.set_marca("ford")
+coche1.conducir()
+print(coche1.get_marca())
+        </code></pre>
+        </p>
+      </section>
+      <section>
+        <h3>Uso de @property</h3>
+        <p>
+          Python proporciona una forma más limpia y moderna de implementar getters y setters mediante el decorador
+          @property. <br>
+          El getter y el setter deben compartir el mismo nombre porque en Python, una propiedad se trata como un único
+          atributo lógico que controla el acceso a un valor. <br>
+          El nombre del getter define el nombre de la propiedad, y el setter asociado permite modificar esa propiedad.
+          <br>
+          Cuando usas @property, estás creando una "propiedad" en la clase. Esta propiedad actúa como un atributo, pero
+          su valor es controlado por las funciones getter y setter detrás de escena.
+        <pre><code class="language-python">
+# Definimos la clase coche
+class Coche:
+
+    def __init__(self, marca, modelo, color):
+        self._marca = marca # Atributo protegido
+        self._modelo = modelo # Atributo protegido
+        self._color = color # Atributo protegido
+
+    def conducir(self):
+        print(f'''Conduciendo el coche:
+        Marca: {self._marca}
+        Modelo: {self._modelo}
+        Color: {self._color}''')
+
+    # def get_marca(self):
+    #     return self._marca
+
+    @property # Definir el metodo get de manera mas pythonica
+    def marca(self):
+        return self._marca
+
+    @marca.setter
+    def marca(self, marca):
+        self._marca = marca
+
+    @property
+    def modelo(self):
+        return self._modelo
+
+    @modelo.setter
+    def modelo(self, modelo):
+        self._modelo = modelo
+
+    @property
+    def color(self):
+        return self._color
+
+    @color.setter
+    def color(self, color):
+        self._color = color
+
+
+# Programa principal
+if __name__ == '__main__':
+    # Creacion de un primer coche
+    coche1 = Coche('Toyota', 'Yaris', 'Azul')
+    coche1.conducir()
+    # Esto evita modificar directamente los atributos protegidos, siguiendo el principio de encapsulación.
+    coche1.marca = 'Toyota 2'
+    coche1.modelo = 'Yaris 2'
+    coche1.color = 'Azul 2'
+    coche1.conducir()
+    # Atributo de marca del coche 1
+    coche1.marca = 'Toyota 3'
+    print(f'Atributo marca coche1: {coche1.marca}')
+          </code></pre>
+        <h4>Explicación:</h4>
+        <ul>
+          <li>@property define un getter para acceder al valor de un atributo protegido (_marca, _modelo, _color)</li>
+          <li>@marca.setter define un setter para modificar el valor de un atributo protegido(_marca)</li>
+          <li>La propiedad marca se utiliza como si fuera un atributo normal, pero en realidad controla el acceso a
+            través del getter y el setter.</li>
+        </ul>
+        </p>
+      </section>
+      <section>
+        <h2>Atributos dinámicos</h2>
+        <p>
+          Los atributos dinámicos en Python son atributos que puedes agregar o modificar a un objeto después de que este
+          ha sido creado, incluso si no están definidos explícitamente en la clase del objeto. Esto es posible gracias a
+          la naturaleza dinámica de Python y su sistema de tipos flexible.
+        <ol>
+          <h3>Características principales:</h3>
+          <li>Se crean en tiempo de ejecución: Puedes añadirlos directamente a una instancia específica de una clase.
+          </li>
+          <li>No afectan a otras instancias: Un atributo dinámico se aplica solo al objeto al que lo agregaste.</li>
+          <li>Flexibilidad: Facilitan la modificación del comportamiento de objetos sin necesidad de modificar la
+            definición de la clase.</li>
+        </ol>
+        <h3>Uso de setattr vs. Asignación directa:</h3>
+        <p>
+          Ambas técnicas permiten agregar o modificar atributos dinámicamente, pero setattr() es más útil cuando el
+          nombre del atributo es dinámico y se determina en tiempo de ejecución. Por otro lado, la asignación directa es
+          más simple y legible, y se usa comúnmente cuando el nombre del atributo es fijo y conocido en el momento de
+          escribir el código.
+        <ul>
+          <h4>setattr</h4>
+          <li>Permite que el nombre del atributo sea dinámico. Es decir, puedes usar variables o strings para determinar
+            el nombre del atributo en tiempo de ejecución.</li>
+          <li>Útil en situaciones en las que no conoces de antemano los nombres de los atributos y los decides sobre la
+            marcha.</li>
+          <pre><code class="language-python">
+setattr(objeto1, "atributo_dinamico", 'Valor dinámico')
+print(objeto1.atributo_dinamico)  # 'Valor dinámico'
+            </code></pre>
+          <li>Si usas setattr() para agregar atributos, no puedes ver fácilmente si esos atributos existen al
+            inspeccionar el objeto usando dir() o __dict__ (aunque sí lo puedes hacer si inspeccionas el objeto después
+            de haberlo creado).</li>
+          <li>En algunos casos, setattr() puede agregar atributos de manera más "oculta", es decir, el atributo podría
+            no ser evidente hasta que realmente se acceda a él.</li>
+        </ul>
+        <h4>Asignación directa:</h4>
+        <ul>
+          <li>Es más explícita y directa. El nombre del atributo es conocido en el momento de escribir el código.</li>
+          <li>Es más legible y comprensible, especialmente cuando los nombres de los atributos son fijos.</li>
+          <pre><code class="language-python">
+coche1.nuevo_atributo2 = 'Valor nuevo atributo 2'
+print(coche1.nuevo_atributo2)  # 'Valor nuevo atributo 2'
+          </code></pre>
+          <li>Al usar la asignación directa, el atributo es fácilmente visible en el objeto y se puede acceder a él sin
+            problemas.</li>
+          <li>Si inspeccionas el objeto usando dir(coche1) o coche1.__dict__, verás los atributos definidos
+            directamente.</li>
+        </ul>
+        </p>
+        <pre><code class="language-python">
+<strong>Ejemplo básico:</strong>
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+# Crear una instancia
+p = Persona("Ana")
+
+# Agregar un atributo dinámico
+p.edad = 25
+
+# Usar el nuevo atributo
+print(f"{p.nombre} tiene {p.edad} años.")  # Ana tiene 25 años.
+
+# Otro objeto no tiene el atributo dinámico
+q = Persona("Luis")
+# print(q.edad)  # Esto dará un error AttributeError
+        </code></pre>
+        <pre><code class="language-python">
+<strong>Ejemplo:</strong>
+# Definimos la clase coche
+class Coche:
+
+    def __init__(self, marca, modelo, color):
+        self._marca = marca  # Atributo protegido
+        self._modelo = modelo  # Atributo protegido
+        self._color = color  # Atributo protegido
+
+    def conducir(self):
+        print(f'''Conduciendo el coche:
+        Marca: {self._marca}
+        Modelo: {self._modelo}
+        Color: {self._color}''')
+
+    # def get_marca(self):
+    #     return self._marca
+
+    @property # Definir el metodo get de manera mas pythonica
+    def marca(self):
+        return self._marca
+
+    @marca.setter
+    def marca(self, marca):
+        self._marca = marca
+
+    @property
+    def modelo(self):
+        return self._modelo
+
+    @modelo.setter
+    def modelo(self, modelo):
+        self._modelo = modelo
+
+    @property
+    def color(self):
+        return self._color
+
+    @color.setter
+    def color(self, color):
+        self._color = color
+
+
+# Programa principal
+if __name__ == '__main__':
+    # Creacion de un primer coche
+    coche1 = Coche('Toyota', 'Yaris', 'Azul')
+    coche1.conducir()
+
+    coche1.marca = 'Toyota 2'
+    coche1.modelo = 'Yaris 2'
+    coche1.color = 'Azul 2'
+
+    # Agregar un nuevo atributo a una instancia de clase:
+    # Utilizando el método "setattr()"
+    setattr(coche1, 'nuevo_atributo', 'Valor nuevo atributo')
+    # Asignación directa
+    coche1.nuevo_atributo2 = 'Valor nuevo atributo 2'
+
+    print(f'Atributos del coche1: {coche1.__dict__}')
+    coche1.conducir()
+    print(coche1.nuevo_atributo)
+    print(f'Nuevo atributo coche1 {coche1.nuevo_atributo2}')
+
+    # Segundo objeto
+    coche2 = Coche('Chevrolet', 'Trax', 'Blanco')
+    coche2.conducir()
+    print(f'Atributos del coche2: {coche2.__dict__}')
+    # print(f'Nuevo atributo coche2 {coche2.nuevo_atributo}')
+    # print(f'Nuevo atributo coche2 {coche2.nuevo_atributo2}')
+        </code></pre>
+        </p>
+      </section>
+      <section>
+        <h2>Atributos de clase</h2>
+        <div>
+          <p>
+            Los atributos de clase son variables que se definen directamente en el cuerpo de una clase y que son
+            compartidas por todas las instancias de esa clase. Esto significa que todas las instancias de la clase
+            comparten el mismo valor para el atributo de clase, a menos que se sobrescriba explícitamente en una
+            instancia.
+          </p>
+          <h3>Características principales de los atributos de clase:</h3>
+          <ol>
+            <li>Definición:</li>
+            <ul>
+              <li>Se declaran dentro del cuerpo de la clase, pero fuera de los método</li>
+              <li>Se pueden acceder usando la clase o las instancias.</li>
+            </ul>
+            <li>Compartidos: Todas las instancias comparten el mismo valor a menos que se modifiquen en el nivel de
+              instancia.</li>
+            <li>Modificación:
+              <ul>
+                <li>Si se modifica el atributo a través de la clase, el cambio afecta a todas las instancias.</li>
+                <li>Si se sobrescribe el atributo en una instancia, esta tendrá su propia copia local, independiente del
+                  atributo de clase.</li>
+              </ul>
+            </li>
+            <li>Uso común:
+              <ul>
+                <li>Contar instancias creadas de una clase.</li>
+                <li>Configuraciones o valores constantes compartidos por todas las instancias.</li>
+              </ul>
+            </li>
+            <li>Ejemplo:
+              <pre><code class="language-python">
+class Persona:
+
+atributo_clase = 0
+
+def __init__(self, atributo_instancia):
+    self.atributo_instancia = atributo_instancia
+
+# Programa principal
+if __name__ == '__main__':
+  print(f'*** Atributos de Clase ***')
+  print(f'Atributo de Clase: {Persona.atributo_clase}')
+  # Modificamos el atributo de clase
+  Persona.atributo_clase = 10
+  print(f'Atributo de Clase: {Persona.atributo_clase}')
+
+  # Creamos un objeto persona1
+  persona1 = Persona(15)
+  print(f'Atributo de Clase desde persona1: {persona1.atributo_clase}')  # no es la mejor práctica, para acceder a un atributo de clase es recomendable hacerlo desde la clase.
+  print(f'Atributo de instancia desde persona1: {persona1.atributo_instancia}')
+
+  # Creamos un objeto persona2
+  persona2 = Persona(30)
+  print(f'Atributo de Clase desde persona2: {persona2.atributo_clase}')
+  persona2.atributo_clase = 20
+  print(persona2.atributo_clase) # solo modifiqué el atributo de clase para el objeto "persona2"
+  print(persona1.atributo_clase)
+  print(Persona.atributo_clase)
+  print(f'Atributo de instancia desde persona2: {persona2.atributo_instancia}')
+            </code></pre>
+            </li>
+          </ol>
+        </div>
+        <div>
+          <h2>Atributos de instancia</h2>
+          <p>
+            Un atributo de instancia en Python es una variable que pertenece a una instancia específica de una clase.
+            Esto significa que cada instancia de la clase puede tener sus propios valores para estos atributos,
+            independientes de las demás instancias.
+          </p>
+          <h3>Características principales de los atributos de instancia:</h3>
+          <ol>
+            <li>Definición: Se crean y asignan típicamente dentro de un método de la clase, generalmente en el método
+              __init__, utilizando la palabra clave self.</li>
+            <li>Específicos de la instancia: Cada instancia de la clase tiene su propia copia de los atributos de
+              instancia.</li>
+            <li>Acceso: Se acceden a través de self, que es una referencia a la propia instancia en la que se está
+              trabajando.</li>
+            <li>Independencia: Los valores de los atributos de instancia no afectan ni son afectados por los valores de
+              otras instancias de la misma clase.</li>
+            <li>Ejemplo básico:
+              <pre>
+                  <code class="language-python">
+class Persona:
+def __init__(self, nombre, edad):
+    self.nombre = nombre  # Atributo de instancia
+    self.edad = edad      # Atributo de instancia
+
+# Crear instancias
+persona1 = Persona("Ana", 25)
+persona2 = Persona("Luis", 30)
+
+# Acceder a los atributos de instancia
+print(persona1.nombre)  # Output: Ana
+print(persona2.nombre)  # Output: Luis
+
+# Cambiar el valor de un atributo de instancia
+persona1.edad = 26
+print(persona1.edad)  # Output: 26
+print(persona2.edad)  # Output: 30 (sin cambios)
+                  </code>
+                </pre>
+            </li>
+          </ol>
+        </div>
+        <div>
+          <h3>
+            Ejemplo_contador_personas:
+          </h3>
+          <pre><code class="language-python">
+class Persona:
+    # Atributo clase
+    contador_personas = 0
+
+    def __init__(self, nombre, apellido):
+        # Incrementamos el valor del atributo de clase
+        Persona.contador_personas += 1
+        self.id = Persona.contador_personas
+        self.nombre = nombre
+        self.apellido = apellido
+
+    def mostrar_persona(self):
+        print(f'Persona: {self.id}, {self.nombre}, {self.apellido}')
+
+if __name__ == '__main__':
+    print('*** Ejemplo Contador de Objetos de tipo Persona ***')
+    persona1 = Persona('Gerardo', 'Perez')
+    persona1.mostrar_persona()
+
+    # Segundo objeto
+    persona2 = Persona('Daniel', 'Sanchez')
+    persona2.mostrar_persona()
+
+    # Imprimir el valor del contador de objetos de personas
+    print(f'Contador objetos Persona: {Persona.contador_personas}')
+          </code></pre>
+        </div>
+      </section>
+      <section>
+        <div>
+          <h2>Métodos de clase</h2>
+          <p>En Python, un método de clase es un método que pertenece a la clase como un todo, en lugar de estar
+            vinculado a instancias específicas de la clase. Se define utilizando el decorador @classmethod. Estos
+            métodos tienen acceso a la propia clase como primer argumento, que por convención se denomina cls. Esto
+            permite que trabajen directamente con atributos o métodos de la clase.</p>
+          <h3>Características clave de los métodos de clase:</h3>
+          <li>Uso del decorador: Se define con @classmethod</li>
+          <li>Acceso a la clase: El primer paráetro, cls, representa la clase en sí y no una instancia.</li>
+          <li>Uso común: Se utilizan para crear métodos que afectan a la clase en su conjunto o para trabajar con datos
+            relacionados con la clase y no con una instancia.</li>
+          <li>Ejemplo básico:
+            <pre><code class="language-python">
+class MiClase:
+atributo_clase = "valor por defecto"
+
+@classmethod
+def metodo_clase(cls):
+    return f"Este es un método de clase. El atributo_clase es: {cls.atributo_clase}"
+
+# Llamar al método sin crear una instancia
+print(MiClase.metodo_clase())  # Output: Este es un método de clase. El atributo_clase es: valor por defecto
+            </code></pre>
+          </li>
+          <li>Ejemplo más complejo:
+            <pre><code class="language-python">
+class Persona:
+# Atributo clase
+contador_personas = 0
+
+    def __init__(self, nombre, apellido):
+        # Incrementamos el valor del atributo de clase
+        Persona.contador_personas += 1
+        self.id = Persona.contador_personas
+        self.nombre = nombre
+        self.apellido = apellido
+
+    def mostrar_persona(self):
+        print(f'Persona: {self.id}, {self.nombre}, {self.apellido}')
+
+    @staticmethod
+    def get_contador_personas_estatico():
+        print('Método estático')
+        return Persona.contador_personas
+    # es más recomendable en python este tipo de decorador
+    @classmethod
+    def get_contador_personas_clase(cls):
+        print('Método de clase')
+        return cls.contador_personas
+
+
+if __name__ == '__main__':
+    print('*** Ejemplo Contador de Objetos de tipo Persona ***')
+    persona1 = Persona('Gerardo', 'Perez')
+    persona1.mostrar_persona()
+
+    # Segundo objeto
+    persona2 = Persona('Daniel', 'Sanchez')
+    persona2.mostrar_persona()
+
+    # Imprimir el valor del contador de objetos de personas
+    print(f'Contador objetos Persona: {Persona.contador_personas}')
+    print(f'Contador objetos Persona (persona1): {persona1.contador_personas}')
+    print(f'Contador objetos Persona (static): {Persona.get_contador_personas_estatico()}')
+    print(f'Contador objetos Persona (clase): {Persona.get_contador_personas_clase()}')
+            </code></pre>
+          </li>
+        </div>
+        <div>
+          <h3>Comparación con otros métodos:</h3>
+          <ul>
+            <li>Métodos de instancia: Operan sobre instancias individuales y tienen acceso a self que representa la
+              instancia.</li>
+            <li>Métodos estáticos: No reciben automáticamente ningún argumento (self o cls) y son independientes tanto
+              de instancias como de clases. Se definen con @staticmethod.</li>
+          </ul>
+        </div>
+      </section>
+
+
+    </main>
+    <footer>
+    </footer>
+  </article>
+</body>
+
+</html>
